@@ -1,0 +1,9 @@
+script(src='/javascripts/tabula.js')
+h1= title
+p Welcome to #{title}
+
+button(data-action='add') add
+
+ul
+- each post in locals
+	li= post
