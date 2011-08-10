@@ -33,6 +33,8 @@ app.configure('production', function(){
 // Routes
 
 app.get('/', function(req, res){
+    console.log('home page');
+    
     posts.findAll( function(error,docs){
         res.render('index.jade', { 
             locals: {
@@ -56,7 +58,11 @@ app.post('/post/new', function(req, res){
         type: 'say',
         body: 'hello world'
     }, function( error, docs) {
-        res.redirect('/');
+        if(error) {
+          console.log( 'error while saving' );
+        } else {
+          res.redirect('/');
+        }        
     });
 });
 

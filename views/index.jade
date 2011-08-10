@@ -2,8 +2,16 @@ script(src='/javascripts/tabula.js')
 h1= title
 p Welcome to #{title}
 
-button(data-action='add') add
+#context
+	div character
+	div map
 
-ul
-- each post in locals
-	li= post
+#stream
+
+	#chat
+		textarea(id='post')
+		button(data-action='add') post
+
+	ul
+	- each post in stream
+		li= post.body
