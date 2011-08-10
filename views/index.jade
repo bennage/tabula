@@ -10,8 +10,12 @@ p Welcome to #{title}
 
 	#chat
 		textarea(id='post')
-		button(data-action='add') post
+		button(data-action='post') post
+		button(data-action='clear') clear
+
 
 	ul
 	- each post in stream
-		li= post.body
+		li
+			p= post.type
+			p= post.body

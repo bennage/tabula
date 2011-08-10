@@ -20,7 +20,7 @@ PostProvider.prototype.findAll = function(callback) {
     this.getCollection(function(error, posts_collection) {
         if(error) { callback(error); }
         else {
-            posts_collection.find().toArray(function(error, results) {
+            posts_collection.find().sort({when:1}).toArray(function(error, results) {
                 if(error) { callback(error); }
                 else { callback(null, results); }
             });
@@ -70,4 +70,10 @@ PostProvider.prototype.save = function(posts, callback) {
 
 };
 
+PostProvider.prototype.remove = function() {
+  this.getCollection(function(error, post_collection) {
+    post_collection.remove();
+  });
+};
+ 
 exports.PostProvider = PostProvider;

@@ -52,18 +52,44 @@ app.get('/post/new', function(req, res) {
     });
 });
 
+var types = {
+  say: function() {},
+  think: function() {},
+  move: function() {}
+};
+
+function processPost(data) {
+  var re = /\b([a-z]+)\b/i;
+  var m = re.exec(data);
+  var type = m[0];
+  
+  console.log(type); 
+
+  if(typeof types[type] !== 'undefined') {
+    data = 'removed ' + data;
+  }
+
+  return {
+    type: type,
+    body: data,
+    when: new Date()
+  };
+}
+
 app.post('/post/new', function(req, res){
-    console.log('trying to save');
-    posts.save({
-        type: 'say',
-        body: 'hello world'
-    }, function( error, docs) {
+    var post = processPost(req.body.post); 
+
+    posts.save(post, function( error, docs) {
         if(error) {
           console.log( 'error while saving' );
         } else {
           res.redirect('/');
         }        
     });
+});
+
+app.post('/post/clear', function(req, res){
+    posts.remove();
 });
 
 
