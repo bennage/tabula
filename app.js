@@ -33,7 +33,6 @@ app.configure('production', function(){
 // Routes
 
 app.get('/', function(req, res){
-    console.log('home page');
     res.render('index.jade', { locals: {
         title: 'tabula'
     }
@@ -84,14 +83,11 @@ app.post('/post/new', function(req, res){
 });
 
 app.post('/post/clear', function(req, res){
-    posts.remove();
+  posts.remove();
 });
 
 app.get('/stream', function(req, res){
-  console.log('getting stream');
-  posts.findAll( function(error,docs){
-        res.json(docs);
-        });
+  posts.findAll( function(error,docs){ res.json(docs); });
 });
 
 

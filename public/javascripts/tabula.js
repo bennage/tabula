@@ -26,7 +26,6 @@
 	};
 
 	function getStream() {
-		
 		$.ajax({
 			url: '/stream',
 			success: renderStream
@@ -35,12 +34,7 @@
 
 	function renderStream(stream) {
 		$('#post-template').template('post-template');
-
 		$.tmpl('post-template', stream ).appendTo( "#stream" );
-
-		// stream.forEach(function(post){
-		// 	$('#stream').append('<li>m</li>');
-		// });
 	}
 	
 	$(document).ready(function() {
