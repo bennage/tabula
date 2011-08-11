@@ -1,4 +1,11 @@
 script(src='/javascripts/tabula.js')
+
+script#post-template(type='text/x-jquery-tmpl')
+	.post
+		.type ${type}
+		.body ${body}	
+	
+
 h1= title
 p Welcome to #{title}
 
@@ -14,8 +21,4 @@ p Welcome to #{title}
 		button(data-action='clear') clear
 
 
-	ul
-	- each post in stream
-		li
-			p= post.type
-			p= post.body
+	ul#stream

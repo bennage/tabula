@@ -34,14 +34,9 @@ app.configure('production', function(){
 
 app.get('/', function(req, res){
     console.log('home page');
-    
-    posts.findAll( function(error,docs){
-        res.render('index.jade', { 
-            locals: {
-                title: 'tabula',
-                stream:docs
-            }
-        });
+    res.render('index.jade', { locals: {
+        title: 'tabula'
+    }
     });
 });
 
@@ -90,6 +85,13 @@ app.post('/post/new', function(req, res){
 
 app.post('/post/clear', function(req, res){
     posts.remove();
+});
+
+app.get('/stream', function(req, res){
+  console.log('getting stream');
+  posts.findAll( function(error,docs){
+        res.json(docs);
+        });
 });
 
 
