@@ -11,7 +11,7 @@
 			"file": "/home/bennage/dev/tabula/PostProvider.js",
 			"settings":
 			{
-				"buffer_size": 2124,
+				"buffer_size": 2223,
 				"line_ending": "Unix"
 			}
 		},
@@ -19,7 +19,7 @@
 			"file": "/home/bennage/dev/tabula/app.js",
 			"settings":
 			{
-				"buffer_size": 1830,
+				"buffer_size": 2882,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,7 +27,7 @@
 			"file": "/home/bennage/dev/tabula/views/index.jade",
 			"settings":
 			{
-				"buffer_size": 290,
+				"buffer_size": 343,
 				"line_ending": "Unix"
 			}
 		},
@@ -43,7 +43,7 @@
 			"file": "/home/bennage/dev/tabula/public/javascripts/tabula.js",
 			"settings":
 			{
-				"buffer_size": 873,
+				"buffer_size": 2212,
 				"line_ending": "Unix"
 			}
 		},
@@ -132,6 +132,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"res",
 			"}",
 			";",
 			":",
@@ -163,7 +164,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -171,15 +172,15 @@
 					"file": "/home/bennage/dev/tabula/PostProvider.js",
 					"settings":
 					{
-						"buffer_size": 2124,
+						"buffer_size": 2223,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1655,
-								1620
+								2144,
+								2144
 							]
 						],
 						"settings":
@@ -189,7 +190,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 844,
+						"translation.y": 0,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -199,15 +200,15 @@
 					"file": "/home/bennage/dev/tabula/app.js",
 					"settings":
 					{
-						"buffer_size": 1830,
+						"buffer_size": 2882,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1509,
-								1509
+								1809,
+								2761
 							]
 						],
 						"settings":
@@ -217,7 +218,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 908,
+						"translation.y": 1603,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -227,15 +228,15 @@
 					"file": "/home/bennage/dev/tabula/views/index.jade",
 					"settings":
 					{
-						"buffer_size": 290,
+						"buffer_size": 343,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								128,
-								128
+								331,
+								331
 							]
 						],
 						"settings":
@@ -244,7 +245,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 0,
+						"translation.y": 133,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -281,24 +282,25 @@
 					"file": "/home/bennage/dev/tabula/public/javascripts/tabula.js",
 					"settings":
 					{
-						"buffer_size": 873,
+						"buffer_size": 2212,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								407,
-								407
+								612,
+								612
 							]
 						],
 						"settings":
 						{
+							"spell_check": true,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 212,
+						"translation.y": 438,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -389,6 +391,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 251
+	},
 	"replace":
 	{
 		"height": 0
