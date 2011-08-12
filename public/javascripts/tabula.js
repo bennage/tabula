@@ -31,7 +31,19 @@
 		}
 	};
 
-function roll(dice)
+function roll(exp) {
+	var re = /(\d*d\d+(\s*[+-]\s*(\d*d\d+|\d+?))*)/ig;
+	var matches = exp.match(re);
+	var out = '';
+	
+	for(var i = 0; i < matches.length; i++) {
+		out += i + ': ' +  matches[i] + '\n';
+	}	
+
+	alert(out);
+}
+
+function roll2(dice)
 {
 	dice = dice.replace(/- */,'+ -');
 	dice = dice.replace(/D/,'d');
