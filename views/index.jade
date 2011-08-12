@@ -3,6 +3,7 @@ script(src='/javascripts/tabula.js')
 script#post-template(type='text/x-jquery-tmpl')
 	.post
 		.type ${type}
+		.when ${when}
 		.body ${body}	
 	
 h1= title
@@ -16,6 +17,8 @@ h1= title
 	#chat
 		textarea(id='post')
 		button(data-action='post') post
-		button(data-action='clear') clear
+		button(data-action='clear') clear		
+		button(data-action='roll') roll
+
 
 	#stream
