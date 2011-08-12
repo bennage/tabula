@@ -53,7 +53,9 @@ function processPost(data) {
   console.log(type); 
 
   if(typeof types[type] !== 'undefined') {
-    data = 'removed ' + data;
+    data = data.replace(re,'');
+  } else {
+    type = 'narrate';
   }
 
   return {

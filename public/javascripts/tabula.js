@@ -11,10 +11,7 @@
 				contentType: 'application/x-www-form-urlencoded',
 				url: '/post/new',
 				type: 'post',
-				success: function(result){
-					$('#post-template').template('post-template');
-					$.tmpl('post-template', result ).prependTo( "#stream" );
-				}
+				success: renderStream
 			});			
 		},
 		clear: function() {
@@ -35,8 +32,9 @@
 	}
 
 	function renderStream(stream) {
+		stream = (typeof stream.length === 'undefined') ? [stream] : stream;
 		$('#post-template').template('post-template');
-		$.tmpl('post-template', stream ).appendTo( "#stream" );
+		$.tmpl('post-template', stream ).prependTo( "#stream" );
 	}
 	
 	$(document).ready(function() {
