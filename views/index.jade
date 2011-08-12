@@ -5,20 +5,17 @@ script#post-template(type='text/x-jquery-tmpl')
 		.type ${type}
 		.body ${body}	
 	
-
 h1= title
-p Welcome to #{title}
 
 #context
 	div character
 	div map
 
-#stream
+#board
 
 	#chat
 		textarea(id='post')
 		button(data-action='post') post
 		button(data-action='clear') clear
 
-
-	ul#stream
+	#stream

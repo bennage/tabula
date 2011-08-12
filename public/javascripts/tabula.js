@@ -12,7 +12,8 @@
 				url: '/post/new',
 				type: 'post',
 				success: function(result){
-					// alert(result);
+					$('#post-template').template('post-template');
+					$.tmpl('post-template', result ).prependTo( "#stream" );
 				}
 			});			
 		},
@@ -21,6 +22,7 @@
 				url: '/post/clear',
 				type: 'post'
 			});
+			$('#stream').empty();
 
 		}
 	};

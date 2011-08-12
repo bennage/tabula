@@ -39,13 +39,6 @@ app.get('/', function(req, res){
     });
 });
 
-app.get('/post/new', function(req, res) {
-    res.render('post_new.jade', { locals: {
-        title: 'New Post'
-    }
-    });
-});
-
 var types = {
   say: function() {},
   think: function() {},
@@ -77,7 +70,7 @@ app.post('/post/new', function(req, res){
         if(error) {
           console.log( 'error while saving' );
         } else {
-          res.redirect('/');
+          res.json(post);
         }        
     });
 });
