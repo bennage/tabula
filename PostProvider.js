@@ -4,9 +4,37 @@ var mongo = require('mongodb'),
     BSON = mongo.BSON,
     ObjectID = mongo.ObjectId;
 
+
 var PostProvider = function(host,port) {
     this.db = new Db('tabula', new Server(host, port, {auto_reconnect: true}, {}));
     this.db.open(function(){ console.log('db opened'); });
+};
+
+var types = {
+  say: function() {},
+  think: function() {},
+  move: function() {},
+};
+
+PostProvider.processPost = function(data) {
+  var re = /\b([a-z]+)\b/i;
+  var m = re.exec(data);
+  var type = m[0];
+  
+  console.log(type); 
+
+  if(typeof types[type] !== 'undefined') {
+    data = data.replace(re,'');
+    data = types[type](data) || data;
+  } else {
+    type = 'narrate';
+  }
+
+  return {
+    type: type,
+    body: data,
+    when: new Date()
+  };
 };
 
 PostProvider.prototype.getCollection = function(callback) {

@@ -10,3 +10,5 @@ lib-cov
 pids
 logs
 results
+.hg/*
+.hgignore

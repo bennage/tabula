@@ -11,7 +11,7 @@
 			"file": "/home/bennage/dev/tabula/PostProvider.js",
 			"settings":
 			{
-				"buffer_size": 2223,
+				"buffer_size": 2677,
 				"line_ending": "Unix"
 			}
 		},
@@ -19,7 +19,15 @@
 			"file": "/home/bennage/dev/tabula/app.js",
 			"settings":
 			{
-				"buffer_size": 4171,
+				"buffer_size": 2249,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/bennage/dev/tabula/.gitignore",
+			"settings":
+			{
+				"buffer_size": 84,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,15 +35,15 @@
 			"file": "/home/bennage/dev/tabula/views/index.jade",
 			"settings":
 			{
-				"buffer_size": 343,
+				"buffer_size": 596,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/bennage/dev/tabula/public/stylesheets/style.styl",
+			"file": "/home/bennage/dev/tabula/public/javascripts/tabula.js",
 			"settings":
 			{
-				"buffer_size": 403,
+				"buffer_size": 2254,
 				"line_ending": "Unix"
 			}
 		}
@@ -67,17 +75,22 @@
 	},
 	"file_history":
 	[
+		"/home/bennage/dev/tabula/Procfile",
+		"/home/bennage/dev/tabula/.hgignore",
+		"/home/bennage/dev/tabula/views/login.jade",
+		"/home/bennage/dev/everyauth/package.json",
+		"/home/bennage/dev/tabula/public/stylesheets/style.styl",
+		"/home/bennage/dev/tabula/package.json",
+		"/home/bennage/dev/tabula/views/layout.jade",
 		"/etc/hosts",
 		"/home/bennage/dev/tabula/public/javascripts/tabula.js",
 		"/home/bennage/.config/sublime-text-2/Packages/User/coffee-script.sublime-build",
 		"/home/bennage/.config/sublime-text-2/Packages/User/jslint.sublime-build",
-		"/home/bennage/dev/tabula/package.json",
 		"/home/bennage/dev/tabula/PostProvider2.js",
 		"/home/bennage/dev/tabula/PostProvider2.coffee",
 		"/home/bennage/dev/tabula/test.coffee",
 		"/home/bennage/dev/tabula/PostProvider.coffee",
 		"/home/bennage/.config/sublime-text-2/Packages/CoffeeScript/README.markdown",
-		"/home/bennage/dev/tabula/views/layout.jade",
 		"/home/bennage/dev/tabula/public/stylesheets/reset.styl",
 		"/home/bennage/dev/tabula/public/stylesheets/style.css",
 		"/home/bennage/.config/sublime-text-2/Packages/Go/Go.tmLanguage",
@@ -97,12 +110,14 @@
 	},
 	"find_in_files":
 	{
-		"height": 0,
+		"height": 87,
 		"include_history":
 		[
+			"*.seed"
 		],
 		"location_history":
 		[
+			"<open folders>"
 		]
 	},
 	"find_state":
@@ -110,6 +125,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"everyauth",
+			"a",
 			"res",
 			"}",
 			";",
@@ -142,7 +159,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -150,15 +167,15 @@
 					"file": "/home/bennage/dev/tabula/PostProvider.js",
 					"settings":
 					{
-						"buffer_size": 2223,
+						"buffer_size": 2677,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2144,
-								2144
+								409,
+								421
 							]
 						],
 						"settings":
@@ -168,7 +185,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 0,
+						"translation.y": 198,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -178,15 +195,15 @@
 					"file": "/home/bennage/dev/tabula/app.js",
 					"settings":
 					{
-						"buffer_size": 4171,
+						"buffer_size": 2249,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								425,
-								425
+								1561,
+								1561
 							]
 						],
 						"settings":
@@ -196,25 +213,51 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 0,
+						"translation.y": 725,
 						"zoom_level": 1
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "/home/bennage/dev/tabula/views/index.jade",
+					"file": "/home/bennage/dev/tabula/.gitignore",
 					"settings":
 					{
-						"buffer_size": 343,
+						"buffer_size": 84,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								331,
-								331
+								84,
+								84
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/bennage/dev/tabula/views/index.jade",
+					"settings":
+					{
+						"buffer_size": 596,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								164,
+								164
 							]
 						],
 						"settings":
@@ -229,28 +272,28 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "/home/bennage/dev/tabula/public/stylesheets/style.styl",
+					"buffer": 4,
+					"file": "/home/bennage/dev/tabula/public/javascripts/tabula.js",
 					"settings":
 					{
-						"buffer_size": 403,
+						"buffer_size": 2254,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								389,
-								389
+								125,
+								125
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Stylus/stylus.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 16,
+						"translation.y": 0,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -289,10 +332,6 @@
 		]
 	},
 	"menu_visible": true,
-	"output.exec":
-	{
-		"height": 251
-	},
 	"replace":
 	{
 		"height": 0

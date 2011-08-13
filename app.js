@@ -3,27 +3,27 @@
  */
 
 var express = require('express');
-var everyauth = require('everyauth');
+var auth = require('everyauth');
 var PostProvider = require('./PostProvider').PostProvider;
 
 var posts = new PostProvider('localhost', 27017);
 
 var app = module.exports = express.createServer();
 
-// everyauth stuff
+// auth stuff
 var fb = {
   appId : '12373185169',
   appSecret: 'b990335e26ff08a408bb7ebff709f584'
 };
 
-everyauth.debug = true;
+auth.debug = true;
 
-everyauth.everymodule.findUserById( function(id,callback){
+auth.everymodule.findUserById( function(id,callback){
   debugger;
   callback(null, usersById[id]);
 });  
 
-everyauth.facebook
+auth.facebook
   .appId(fb.appId)
   .appSecret(fb.appSecret)
   .findOrCreateUser( function(session, accessToken, accessTokenExtra, fbUserMetadata){
@@ -45,7 +45,7 @@ app.configure(function(){
   app.use(require('stylus').middleware({ src: __dirname + '/public' }));
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
-  app.use(everyauth.middleware());
+  app.use(auth.middleware());
 });
 
 app.configure('development', function(){
@@ -60,42 +60,18 @@ app.configure('production', function(){
 // Routes
 
 app.get('/', function(req, res){
+  var a = req.session.auth;
+  if(a){
+    console.log(a.facebook.user.id);
+  }
     res.render('index.jade', { locals: {
-        title: 'tabula',
-        session: res.session
+        title: 'tabula'
     }
     });
 });
 
-var types = {
-  say: function() {},
-  think: function() {},
-  move: function() {},
-};
-
-function processPost(data) {
-  var re = /\b([a-z]+)\b/i;
-  var m = re.exec(data);
-  var type = m[0];
-  
-  console.log(type); 
-
-  if(typeof types[type] !== 'undefined') {
-    data = data.replace(re,'');
-    data = types[type](data) || data;
-  } else {
-    type = 'narrate';
-  }
-
-  return {
-    type: type,
-    body: data,
-    when: new Date()
-  };
-}
-
 app.post('/post/new', function(req, res){
-    var post = processPost(req.body.post); 
+    var post = PostProvider.processPost(req.body.post); 
 
     posts.save(post, function( error, docs) {
         if(error) {
@@ -114,7 +90,7 @@ app.get('/stream', function(req, res){
   posts.findAll( function(error,docs){ res.json(docs); });
 });
 
-everyauth.helpExpress(app);
+auth.helpExpress(app);
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
