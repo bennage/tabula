@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -31,7 +30,7 @@ everyauth.facebook
       debugger;
       return {};
   })
-  .redirectPath('http://whatsbetween.us/');
+  .redirectPath('http://whatsbetween.us:3000');
 
 // Configuration
 
@@ -50,6 +49,7 @@ app.configure(function(){
 });
 
 app.configure('development', function(){
+  app.use(express.logger());
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
 });
 

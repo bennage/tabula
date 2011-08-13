@@ -6,6 +6,8 @@
 			
 			var ta = $('#post');
 
+			if(ta.val().trim() === '') return;
+			
 			$.ajax({
 				data: { post: ta.val() },
 				contentType: 'application/x-www-form-urlencoded',
