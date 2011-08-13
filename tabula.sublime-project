@@ -19,7 +19,7 @@
 			"file": "/home/bennage/dev/tabula/app.js",
 			"settings":
 			{
-				"buffer_size": 2882,
+				"buffer_size": 4171,
 				"line_ending": "Unix"
 			}
 		},
@@ -36,31 +36,6 @@
 			"settings":
 			{
 				"buffer_size": 403,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/bennage/dev/tabula/public/javascripts/tabula.js",
-			"settings":
-			{
-				"buffer_size": 2212,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/bennage/.config/sublime-text-2/Packages/User/coffee-script.sublime-build",
-			"settings":
-			{
-				"buffer_size": 70,
-				"line_ending": "Unix",
-				"name": "untitled.sublime-build"
-			}
-		},
-		{
-			"file": "/home/bennage/.config/sublime-text-2/Packages/User/jslint.sublime-build",
-			"settings":
-			{
-				"buffer_size": 61,
 				"line_ending": "Unix"
 			}
 		}
@@ -92,6 +67,11 @@
 	},
 	"file_history":
 	[
+		"/etc/hosts",
+		"/home/bennage/dev/tabula/public/javascripts/tabula.js",
+		"/home/bennage/.config/sublime-text-2/Packages/User/coffee-script.sublime-build",
+		"/home/bennage/.config/sublime-text-2/Packages/User/jslint.sublime-build",
+		"/home/bennage/dev/tabula/package.json",
 		"/home/bennage/dev/tabula/PostProvider2.js",
 		"/home/bennage/dev/tabula/PostProvider2.coffee",
 		"/home/bennage/dev/tabula/test.coffee",
@@ -107,15 +87,13 @@
 		"/home/bennage/.config/sublime-text-2/Packages/User/sample.py",
 		"/home/bennage/dev/tabula/.gitignore",
 		"/home/bennage/.config/sublime-text-2/Packages/D/D.sublime-build",
-		"/home/bennage/.config/sublime-text-2/Packages/User/jslint.sublime-build",
-		"/home/bennage/dev/tabula/package.json",
 		"/home/bennage/dev/mensa/views/index.jade",
 		"/home/bennage/dev/mensa/views/layout.jade",
 		"/home/bennage/dev/mensa/app.js"
 	],
 	"find":
 	{
-		"height": 0
+		"height": 33
 	},
 	"find_in_files":
 	{
@@ -164,7 +142,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -200,15 +178,15 @@
 					"file": "/home/bennage/dev/tabula/app.js",
 					"settings":
 					{
-						"buffer_size": 2882,
+						"buffer_size": 4171,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1809,
-								2761
+								425,
+								425
 							]
 						],
 						"settings":
@@ -218,7 +196,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 1603,
+						"translation.y": 0,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -245,7 +223,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 133,
+						"translation.y": 21,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -273,86 +251,6 @@
 						},
 						"translation.x": 0,
 						"translation.y": 16,
-						"zoom_level": 1
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/home/bennage/dev/tabula/public/javascripts/tabula.js",
-					"settings":
-					{
-						"buffer_size": 2212,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								612,
-								612
-							]
-						],
-						"settings":
-						{
-							"spell_check": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0,
-						"translation.y": 438,
-						"zoom_level": 1
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/home/bennage/.config/sublime-text-2/Packages/User/coffee-script.sublime-build",
-					"settings":
-					{
-						"buffer_size": 70,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								34,
-								34
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0,
-						"translation.y": 0,
-						"zoom_level": 1
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/home/bennage/.config/sublime-text-2/Packages/User/jslint.sublime-build",
-					"settings":
-					{
-						"buffer_size": 61,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1,
-								1
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0,
-						"translation.y": 0,
 						"zoom_level": 1
 					},
 					"type": "text"

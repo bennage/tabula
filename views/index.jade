@@ -8,6 +8,18 @@ script#post-template(type='text/x-jquery-tmpl')
 	
 h1= title
 
+- if (!everyauth.loggedIn)
+	h2 Not Authenticated
+	#fb-login.fb_button(style='background-position: left -188px')
+		a.fb_button_medium(href='/auth/facebook')
+			span#fb_login_text.fb_button_text
+				Connect with Facebook
+- else
+	h2 Authenticated
+	- if (everyauth.facebook)
+		h3 Facebook User Data
+		p= JSON.stringify(everyauth.facebook.user)
+
 #context
 	div character
 	div map
