@@ -5,9 +5,15 @@ var mongo = require('mongodb'),
     ObjectID = mongo.ObjectId;
 
 
-var PostProvider = function(host,port) {
-    this.db = new Db('tabula', new Server(host, port, {auto_reconnect: true}, {}));
-    this.db.open(function(){ console.log('db opened'); });
+var PostProvider = function(dbname, host, port) {
+    var db = new Db(dbname, new Server(host, port, {auto_reconnect: true}, {}));
+    db.open(function(){ 
+      console.log('db opened'); 
+      db.authenticate('tabula', 'rollAd6', function(err, p_client) { 
+        console.log('authenticated db');
+      }); 
+    });
+    this.db = db;
 };
 
 var types = {

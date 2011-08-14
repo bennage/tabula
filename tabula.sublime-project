@@ -19,15 +19,7 @@
 			"file": "/home/bennage/dev/tabula/app.js",
 			"settings":
 			{
-				"buffer_size": 2249,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/bennage/dev/tabula/.gitignore",
-			"settings":
-			{
-				"buffer_size": 84,
+				"buffer_size": 2285,
 				"line_ending": "Unix"
 			}
 		},
@@ -75,6 +67,7 @@
 	},
 	"file_history":
 	[
+		"/home/bennage/dev/tabula/.gitignore",
 		"/home/bennage/dev/tabula/Procfile",
 		"/home/bennage/dev/tabula/.hgignore",
 		"/home/bennage/dev/tabula/views/login.jade",
@@ -98,7 +91,6 @@
 		"/home/bennage/.config/sublime-text-2/Packages/Jade/jade-tmbundle/Syntaxes/Jade.tmLanguage",
 		"/home/bennage/dev/tabula/views/post_new.jade",
 		"/home/bennage/.config/sublime-text-2/Packages/User/sample.py",
-		"/home/bennage/dev/tabula/.gitignore",
 		"/home/bennage/.config/sublime-text-2/Packages/D/D.sublime-build",
 		"/home/bennage/dev/mensa/views/index.jade",
 		"/home/bennage/dev/mensa/views/layout.jade",
@@ -159,7 +151,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -195,15 +187,15 @@
 					"file": "/home/bennage/dev/tabula/app.js",
 					"settings":
 					{
-						"buffer_size": 2249,
+						"buffer_size": 2285,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1561,
-								1561
+								2182,
+								2182
 							]
 						],
 						"settings":
@@ -213,39 +205,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 725,
+						"translation.y": 840,
 						"zoom_level": 1
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "/home/bennage/dev/tabula/.gitignore",
-					"settings":
-					{
-						"buffer_size": 84,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								84,
-								84
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0,
-						"translation.y": 0,
-						"zoom_level": 1
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "/home/bennage/dev/tabula/views/index.jade",
 					"settings":
 					{
@@ -272,7 +238,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"file": "/home/bennage/dev/tabula/public/javascripts/tabula.js",
 					"settings":
 					{

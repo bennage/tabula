@@ -5,8 +5,9 @@
 var express = require('express');
 var auth = require('everyauth');
 var PostProvider = require('./PostProvider').PostProvider;
-
-var posts = new PostProvider('localhost', 27017);
+//staff.mongohq.com:10018/app745452
+var posts = new PostProvider('app745452','staff.mongohq.com', 10018);
+console.log('MONGOHQ_URL ' + process.env['MONGOHQ_URL']); 
 
 var app = module.exports = express.createServer();
 
