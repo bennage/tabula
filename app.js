@@ -2,11 +2,9 @@
  * Module dependencies.
  */
 var express = require('express');
-var auth = require('everyauth');
+var everyauth = require('everyauth');
 var mongoose = require('mongoose');
 var models = require('./models/schema');
-
-var Post = mongoose.model('Post');
 
 var config = require('./config');
 
@@ -15,14 +13,14 @@ mongoose.connect(connectionString);
 
 var app = module.exports = express.createServer();
 
-auth.debug = true;
+everyauth.debug = true;
 
-auth.everymodule.findUserById( function(id,callback){
+everyauth.everymodule.findUserById( function(id,callback){
   debugger;
   callback(null, usersById[id]);
 });  
 
-auth.facebook
+everyauth.facebook
   .appId(config.fb.appId)
   .appSecret(config.fb.appSecret)
   .findOrCreateUser( function(session, accessToken, accessTokenExtra, fbUserMetadata){
@@ -43,7 +41,7 @@ app.configure(function(){
   app.use(express.session({secret:'bennage'}));
   app.use(require('stylus').middleware({ src: __dirname + '/public' }));
   app.use(express.static(__dirname + '/public'));
-  app.use(auth.middleware());
+  app.use(everyauth.middleware());
   app.use(app.router);
 });
 
@@ -57,39 +55,69 @@ app.configure('production', function(){
 });
 
 function restrict(req, res, next) {
-  if (req.session.user) {
+  var auth = req.session.auth;  
+  if (auth && auth.loggedIn) {
     next();
   } else {
+    //todo: handle json
     req.session.error = 'Access denied!';
     res.redirect('/login');
   }
 }
 
-// Routes
+// load up routes
+// require('./boot')(app, mongoose);
+
+var Post = mongoose.model('Post');
+var User = mongoose.model('User');
+
+app.get('/', function(req, res){
+    
+  var auth = req.session.auth;  
+  if (auth && auth.loggedIn) { 
+    var id = auth.facebook.user.id;
+
+    console.log(id);
+    //User.
+    //find by fb id, does this need an index? I think yes.
+  }
+
+    res.render('index.jade', { locals: {
+        title: 'tabula',
+        capabilities: {
+          
+        }
+    }
+    });
+});
+
 app.post('/post/new', function(req, res){
     var post = new Post();
     post.parse(req.body.post);
 
-    post.save(function(e){
-      console.dir(e);
+    post.save(function(e,data){
+      if(e) {
+      // todo:    
+      } else {
+        res.json(data);
+      }
     });
-
-    res.json(post);
 });
 
 app.post('/post/clear', function(req, res){
-  Post.collection.remove({});
+  Post.collection.remove({}, function(e){
+    console.dir(e);
+  });
 });
 
 app.get('/stream', function(req, res){
-  Post.find({}, function(error,docs){ res.json(docs.reverse()); });
+  Post.find({}, function(error,docs){ 
+    res.json(docs.reverse()); 
+  });
 });
 
-// load up routes
-require('./boot')(app);
-
-// mixin view helpers for auth
-auth.helpExpress(app);
+// mixin view helpers for everyauth
+everyauth.helpExpress(app);
 
 // start listening
 var port = process.env.PORT || 3000;

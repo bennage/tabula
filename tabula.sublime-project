@@ -8,34 +8,26 @@
 	"buffers":
 	[
 		{
-			"file": "/home/bennage/dev/tabula/PostProvider.js",
-			"settings":
-			{
-				"buffer_size": 2677,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "/home/bennage/dev/tabula/app.js",
 			"settings":
 			{
-				"buffer_size": 2285,
+				"buffer_size": 2922,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/bennage/dev/tabula/views/index.jade",
+			"file": "/home/bennage/dev/tabula/boot.js",
 			"settings":
 			{
-				"buffer_size": 596,
+				"buffer_size": 548,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/bennage/dev/tabula/public/javascripts/tabula.js",
+			"file": "/home/bennage/dev/tabula/routes/main.js",
 			"settings":
 			{
-				"buffer_size": 2254,
+				"buffer_size": 133,
 				"line_ending": "Unix"
 			}
 		}
@@ -67,16 +59,29 @@
 	},
 	"file_history":
 	[
-		"/home/bennage/dev/tabula/.gitignore",
+		"/home/bennage/dev/tabula/models/Post.js",
+		"/home/bennage/dev/tabula/routes/post.js",
+		"/home/bennage/dev/tabula/models/schema.js",
+		"/home/bennage/dev/tabula/package.json",
+		"/home/bennage/dev/tabula/UserProvider.js",
+		"/home/bennage/dev/tabula/PostProvider.js",
+		"/home/bennage/dev/tabula/Repository.js",
+		"/home/bennage/dev/tabula/routes/main.js",
+		"/home/bennage/dev/tabula/boot.js",
+		"/home/bennage/dev/tabula/views/index.jade",
+		"/home/bennage/dev/tabula/public/javascripts/tabula.js",
+		"/home/bennage/dev/tabula/models/Schema.js",
+		"/home/bennage/dev/tabula/models/Schema",
+		"/home/bennage/dev/tabula/config.js",
+		"/home/bennage/dev/tabula/node_modules/mongodb/lib/mongodb/db.js",
 		"/home/bennage/dev/tabula/Procfile",
+		"/home/bennage/dev/tabula/.gitignore",
 		"/home/bennage/dev/tabula/.hgignore",
 		"/home/bennage/dev/tabula/views/login.jade",
 		"/home/bennage/dev/everyauth/package.json",
 		"/home/bennage/dev/tabula/public/stylesheets/style.styl",
-		"/home/bennage/dev/tabula/package.json",
 		"/home/bennage/dev/tabula/views/layout.jade",
 		"/etc/hosts",
-		"/home/bennage/dev/tabula/public/javascripts/tabula.js",
 		"/home/bennage/.config/sublime-text-2/Packages/User/coffee-script.sublime-build",
 		"/home/bennage/.config/sublime-text-2/Packages/User/jslint.sublime-build",
 		"/home/bennage/dev/tabula/PostProvider2.js",
@@ -105,10 +110,12 @@
 		"height": 87,
 		"include_history":
 		[
+			"*.js",
 			"*.seed"
 		],
 		"location_history":
 		[
+			"/home/bennage/dev/tabula",
 			"<open folders>"
 		]
 	},
@@ -117,6 +124,27 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"everyauth",
+			"auth",
+			"db",
+			"var Post = mongoose.model('Post');\n\napp.post('/post/new', function(req, res){\n    var post = new Post();\n    post.parse(req.body.post);\n\n    post.save(function(e){\n      console.dir(e);\n    });\n\n    res.json(post);\n});\n\napp.post('/post/clear', function(req, res){\n  Post.collection.remove({});\n});\n\napp.get('/stream', function(req, res){\n  Post.find({}, function(error,docs){ \n	  res.json(docs.reverse()); \n	});\n});",
+			"body",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"User",
+			"Person",
+			"Schema.",
+			"users",
+			"PostProvider",
+			"posts",
+			"users",
+			"post_collection",
+			"users_collection",
+			"posts_collection",
+			"PostProvider",
+			"mongodb://",
 			"everyauth",
 			"a",
 			"res",
@@ -151,23 +179,23 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/home/bennage/dev/tabula/PostProvider.js",
+					"file": "/home/bennage/dev/tabula/app.js",
 					"settings":
 					{
-						"buffer_size": 2677,
+						"buffer_size": 2922,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								409,
-								421
+								2083,
+								2083
 							]
 						],
 						"settings":
@@ -177,25 +205,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 198,
+						"translation.y": 1020,
 						"zoom_level": 1
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/home/bennage/dev/tabula/app.js",
+					"file": "/home/bennage/dev/tabula/boot.js",
 					"settings":
 					{
-						"buffer_size": 2285,
+						"buffer_size": 548,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2182,
-								2182
+								548,
+								548
 							]
 						],
 						"settings":
@@ -205,58 +233,30 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 840,
+						"translation.y": 0,
 						"zoom_level": 1
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "/home/bennage/dev/tabula/views/index.jade",
+					"file": "/home/bennage/dev/tabula/routes/main.js",
 					"settings":
 					{
-						"buffer_size": 596,
+						"buffer_size": 133,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								164,
-								164
+								133,
+								3
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Jade/jade-tmbundle/Syntaxes/Jade.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0,
-						"translation.y": 21,
-						"zoom_level": 1
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/bennage/dev/tabula/public/javascripts/tabula.js",
-					"settings":
-					{
-						"buffer_size": 2254,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								125,
-								125
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0,
 						"translation.y": 0,
@@ -298,6 +298,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 173
+	},
 	"replace":
 	{
 		"height": 0
