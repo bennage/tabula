@@ -3,13 +3,15 @@
  */
 var express = require('express');
 var auth = require('everyauth');
+var mongoose = require('mongoose');
+var models = require('./models/schema');
+
+var Post = mongoose.model('Post');
 
 var config = require('./config');
-var PostProvider = require('./PostProvider');
-var UserProvider = require('./UserProvider').UserProvider;
 
-var posts = new PostProvider('app745452','staff.mongohq.com', 10018);
-var users = new UserProvider('app745452','staff.mongohq.com', 10018);
+var connectionString = process.env['MONGOHQ_URL'] ||'mongodb://localhost/tabula';
+mongoose.connect(connectionString);
 
 var app = module.exports = express.createServer();
 
@@ -65,23 +67,22 @@ function restrict(req, res, next) {
 
 // Routes
 app.post('/post/new', function(req, res){
-    var post = PostProvider.processPost(req.body.post); 
+    var post = new Post();
+    post.parse(req.body.post);
 
-    posts.save(post, function( error, docs) {
-        if(error) {
-          console.log( 'error while saving' );
-        } else {
-          res.json(post);
-        }        
+    post.save(function(e){
+      console.dir(e);
     });
+
+    res.json(post);
 });
 
 app.post('/post/clear', function(req, res){
-  posts.remove();
+  Post.collection.remove({});
 });
 
 app.get('/stream', function(req, res){
-  posts.findAll( function(error,docs){ res.json(docs.reverse()); });
+  Post.find({}, function(error,docs){ res.json(docs.reverse()); });
 });
 
 // load up routes
