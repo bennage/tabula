@@ -1,49 +1,41 @@
+var config = require('./config');
 var mongo = require('mongodb'),
     Db = mongo.Db,
     Server = mongo.Server,
     BSON = mongo.BSON,
     ObjectID = mongo.ObjectId;
 
+var Repository = function() {
+  var dbname = config.dbname;
+  var host = config.host;
+  var port = config.port;
+  var username = config.username;
+  var password = config.password;
 
-var PostProvider = function(dbname, host, port) {
   var db = new Db(dbname, new Server(host, port, {auto_reconnect: true}, {}));
   db.open(function(){ 
     console.log('db opened'); 
-    db.authenticate('tabula', 'rollAd6', function(err, p_client) { 
+    db.authenticate(username, password, function(err, p_client) { 
       console.log('authenticated db');
     }); 
   });
   this.db = db;
 };
 
-var types = {
-  say: function() {},
-  think: function() {},
-  move: function() {},
-};
-
-PostProvider.processPost = function(data) {
-  var re = /\b([a-z]+)\b/i;
-  var m = re.exec(data);
-  var type = m[0];
-  
-  console.log(type); 
-
-  if(typeof types[type] !== 'undefined') {
-    data = data.replace(re,'');
-    data = types[type](data) || data;
-  } else {
-    type = 'narrate';
-  }
-
-  return {
-    type: type,
-    body: data,
-    when: new Date()
+['posts','users'].forEach(function(collection) {
+  Repository.prototype[collection] = function(callback) {
+      this.db.collection(collection, function(error, posts_collection) {
+          if(error) { 
+            callback(error); 
+          }
+          else { 
+            callback(null, posts_collection);
+          }
+      });
   };
-};
+});
 
-PostProvider.prototype.getCollection = function(callback) {
+Repository.prototype.getCollection = function(callback) {
     this.db.collection('posts', function(error, posts_collection) {
         if(error) { 
           callback(error); 
@@ -54,7 +46,7 @@ PostProvider.prototype.getCollection = function(callback) {
     });
 };
 
-PostProvider.prototype.findAll = function(callback) {
+Repository.prototype.findAll = function(callback) {
     this.getCollection(function(error, posts_collection) {
         if(error) { 
           callback(error); 
@@ -72,7 +64,7 @@ PostProvider.prototype.findAll = function(callback) {
     });
 };
 
-PostProvider.prototype.findById = function(id, callback) {
+Repository.prototype.findById = function(id, callback) {
     this.getCollection(function(error, post_collection) {
       if( error ) {
         callback(error);
@@ -90,7 +82,7 @@ PostProvider.prototype.findById = function(id, callback) {
     });
 };
 
-PostProvider.prototype.save = function(posts, callback) {
+Repository.prototype.save = function(posts, callback) {
 
     this.getCollection(function(error, post_collection) {
 
@@ -114,10 +106,10 @@ PostProvider.prototype.save = function(posts, callback) {
 
 };
 
-PostProvider.prototype.remove = function() {
+Repository.prototype.remove = function() {
   this.getCollection(function(error, post_collection) {
     post_collection.remove({});
   });
 };
  
-module.exports = exports.PostProvider = PostProvider;
+module.exports = exports.Repository = Repository;

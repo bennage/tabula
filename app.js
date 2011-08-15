@@ -1,21 +1,17 @@
 /**
  * Module dependencies.
  */
-
 var express = require('express');
 var auth = require('everyauth');
-var PostProvider = require('./PostProvider').PostProvider;
-//staff.mongohq.com:10018/app745452
+
+var config = require('./config');
+var PostProvider = require('./PostProvider');
+var UserProvider = require('./UserProvider').UserProvider;
+
 var posts = new PostProvider('app745452','staff.mongohq.com', 10018);
-console.log('MONGOHQ_URL ' + process.env['MONGOHQ_URL']); 
+var users = new UserProvider('app745452','staff.mongohq.com', 10018);
 
 var app = module.exports = express.createServer();
-
-// auth stuff
-var fb = {
-  appId : '12373185169',
-  appSecret: 'b990335e26ff08a408bb7ebff709f584'
-};
 
 auth.debug = true;
 
@@ -25,8 +21,8 @@ auth.everymodule.findUserById( function(id,callback){
 });  
 
 auth.facebook
-  .appId(fb.appId)
-  .appSecret(fb.appSecret)
+  .appId(config.fb.appId)
+  .appSecret(config.fb.appSecret)
   .findOrCreateUser( function(session, accessToken, accessTokenExtra, fbUserMetadata){
       debugger;
       return {};
@@ -44,9 +40,9 @@ app.configure(function(){
   app.use(express.cookieParser());  
   app.use(express.session({secret:'bennage'}));
   app.use(require('stylus').middleware({ src: __dirname + '/public' }));
-  app.use(app.router);
   app.use(express.static(__dirname + '/public'));
   app.use(auth.middleware());
+  app.use(app.router);
 });
 
 app.configure('development', function(){
@@ -58,19 +54,16 @@ app.configure('production', function(){
   app.use(express.errorHandler()); 
 });
 
-// Routes
-
-app.get('/', function(req, res){
-  var a = req.session.auth;
-  if(a){
-    console.log(a.facebook.user.id);
+function restrict(req, res, next) {
+  if (req.session.user) {
+    next();
+  } else {
+    req.session.error = 'Access denied!';
+    res.redirect('/login');
   }
-    res.render('index.jade', { locals: {
-        title: 'tabula'
-    }
-    });
-});
+}
 
+// Routes
 app.post('/post/new', function(req, res){
     var post = PostProvider.processPost(req.body.post); 
 
@@ -88,10 +81,17 @@ app.post('/post/clear', function(req, res){
 });
 
 app.get('/stream', function(req, res){
-  posts.findAll( function(error,docs){ res.json(docs); });
+  posts.findAll( function(error,docs){ res.json(docs.reverse()); });
 });
 
+// load up routes
+require('./boot')(app);
+
+// mixin view helpers for auth
 auth.helpExpress(app);
+
+// start listening
 var port = process.env.PORT || 3000;
 app.listen(port);
+
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
