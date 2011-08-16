@@ -67,7 +67,7 @@ function restrict(req, res, next) {
 
 // load up routes
 // require('./boot')(app, mongoose);
-
+//
 var Post = mongoose.model('Post');
 var User = mongoose.model('User');
 

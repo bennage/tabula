@@ -1,5 +1,4 @@
 (function(){
-
 	var actions = {
 		
 		post: function() {
