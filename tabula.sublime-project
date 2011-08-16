@@ -8,26 +8,18 @@
 	"buffers":
 	[
 		{
-			"file": "/home/bennage/dev/tabula/app.js",
+			"file": "/home/bennage/dev/tabula/autotest.rb",
 			"settings":
 			{
-				"buffer_size": 2922,
+				"buffer_size": 1005,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/bennage/dev/tabula/boot.js",
+			"file": "/home/bennage/dev/tabula/specs/the_model_for_a_Post.js",
 			"settings":
 			{
-				"buffer_size": 548,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/bennage/dev/tabula/routes/main.js",
-			"settings":
-			{
-				"buffer_size": 133,
+				"buffer_size": 1264,
 				"line_ending": "Unix"
 			}
 		}
@@ -59,23 +51,30 @@
 	},
 	"file_history":
 	[
+		"/home/bennage/dev/tabula/specs/the_model_for_a_Post.js",
+		"/home/bennage/dev/tabula/autotest.watchr",
+		"/home/bennage/dev/tabula/test.txt",
 		"/home/bennage/dev/tabula/models/Post.js",
-		"/home/bennage/dev/tabula/routes/post.js",
+		"/home/bennage/dev/tabula/specs/tests.js",
+		"/home/bennage/dev/tabula/app.js",
+		"/home/bennage/dev/tabula/public/javascripts/tabula.js",
 		"/home/bennage/dev/tabula/models/schema.js",
+		"/home/bennage/dev/tabula/routes/main.js",
+		"/home/bennage/dev/tabula/boot.js",
+		"/home/bennage/dev/tabula/.gitignore",
 		"/home/bennage/dev/tabula/package.json",
+		"/home/bennage/dev/tabula/run_tests",
+		"/home/bennage/dev/tabula/run_tests.sh",
+		"/home/bennage/dev/tabula/routes/post.js",
 		"/home/bennage/dev/tabula/UserProvider.js",
 		"/home/bennage/dev/tabula/PostProvider.js",
 		"/home/bennage/dev/tabula/Repository.js",
-		"/home/bennage/dev/tabula/routes/main.js",
-		"/home/bennage/dev/tabula/boot.js",
 		"/home/bennage/dev/tabula/views/index.jade",
-		"/home/bennage/dev/tabula/public/javascripts/tabula.js",
 		"/home/bennage/dev/tabula/models/Schema.js",
 		"/home/bennage/dev/tabula/models/Schema",
 		"/home/bennage/dev/tabula/config.js",
 		"/home/bennage/dev/tabula/node_modules/mongodb/lib/mongodb/db.js",
 		"/home/bennage/dev/tabula/Procfile",
-		"/home/bennage/dev/tabula/.gitignore",
 		"/home/bennage/dev/tabula/.hgignore",
 		"/home/bennage/dev/tabula/views/login.jade",
 		"/home/bennage/dev/everyauth/package.json",
@@ -124,6 +123,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Sir Rodney",
+			"\"",
+			"__dirname",
 			"everyauth",
 			"auth",
 			"db",
@@ -184,82 +186,56 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/home/bennage/dev/tabula/app.js",
+					"file": "/home/bennage/dev/tabula/autotest.rb",
 					"settings":
 					{
-						"buffer_size": 2922,
+						"buffer_size": 1005,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2083,
-								2083
+								765,
+								765
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 1020,
+						"translation.y": 0,
 						"zoom_level": 1
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/home/bennage/dev/tabula/boot.js",
+					"file": "/home/bennage/dev/tabula/specs/the_model_for_a_Post.js",
 					"settings":
 					{
-						"buffer_size": 548,
+						"buffer_size": 1264,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								548,
-								548
+								1264,
+								1264
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 0,
-						"zoom_level": 1
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/bennage/dev/tabula/routes/main.js",
-					"settings":
-					{
-						"buffer_size": 133,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								133,
-								3
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0,
-						"translation.y": 0,
+						"translation.y": 468,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -326,6 +302,6 @@
 	"show_minimap": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 209,
+	"side_bar_width": 293,
 	"status_bar_visible": true
 }
