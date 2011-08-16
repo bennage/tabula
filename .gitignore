@@ -12,3 +12,4 @@ logs
 results
 .hg/*
 .hgignore
+node_modules/*
