@@ -50,4 +50,3 @@ exports['A new post time is set to now.'] = function(test){
     test.equal(0, delta);
     test.done();
 };
-
