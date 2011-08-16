@@ -8,6 +8,8 @@ ignore = ['public','node_modules','views']
 dirs = Dir.glob('*/').map { |d| d.sub '/','' }.select { |d| !ignore.any? { |i| i == d }}.join('|')
 pattern = '(' + dirs + ')(/.*)+.js'
 
+run_all_tests
+
 watch(pattern) { |m| run_all_tests }
 
 @interrupted = false

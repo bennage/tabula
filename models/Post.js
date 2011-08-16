@@ -32,16 +32,13 @@ Post.method({
     }
 
     this.type = type;
-    this.body = data;
+    this.body = data.trim();
   }
 });
 
 Post.path('when')
     .default(function(){
        return new Date();
-     })
-    .set(function(v){
-       return v === 'now' ? new Date() : v;
      });
 
-mongoose.model('Post', Post);
+module.exports = mongoose.model('Post', Post);
