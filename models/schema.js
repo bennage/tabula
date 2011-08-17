@@ -5,20 +5,18 @@ var mongoose = require('mongoose'),
 require('./Post');
 
 var Character = new Schema({
-  name: String,
+  name:  {type: String, index: true },
   campaignId: ObjectId,
   profileUrl: String,
-  iplay4eKey: String
+  iplay4eKey: String,
+  userId: ObjectId
 });
 
 var User = new Schema({
-  name: {
-    first: String,
-    last : String
-  },
-  facebookId: String,
-  campaigns: [ObjectId],
-  characters: [ObjectId]
+  name: String,
+  facebookId: {type: String, index: true },
+  campaigns: [{id:ObjectId, name:String}],
+  characters: [{id:ObjectId, name:String}]
 });
 
 var Campaign = new Schema({

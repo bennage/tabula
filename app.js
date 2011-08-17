@@ -15,17 +15,30 @@ var app = module.exports = express.createServer();
 
 everyauth.debug = true;
 
-everyauth.everymodule.findUserById( function(id,callback){
-  debugger;
-  callback(null, usersById[id]);
-});  
+// everyauth.everymodule.findUserById( function(id,callback){
+//   debugger;
+//   callback(null, usersById[id]);
+// });  
 
 everyauth.facebook
   .appId(config.fb.appId)
   .appSecret(config.fb.appSecret)
   .findOrCreateUser( function(session, accessToken, accessTokenExtra, fbUserMetadata){
-      debugger;
-      return {};
+      var id = fbUserMetadata.id;
+      var promise = this.Promise();
+      User.findOne({ facebookId: id}, function(err, result) {
+        var user;
+        if(!result) {
+          user = new User();
+          user.facebookId = id;
+          user.name = fbUserMetadata.name;
+          user.save();
+        } else {
+          user = result.doc;
+        }
+        promise.fulfill(user);
+      });
+      return promise;
   })
   .redirectPath('http://whatsbetween.us:3000');
 
@@ -70,25 +83,73 @@ function restrict(req, res, next) {
 //
 var Post = mongoose.model('Post');
 var User = mongoose.model('User');
+var Character = mongoose.model('Character');
 
 app.get('/', function(req, res){
-    
+  
+  var locals = {};
+  var render = function() {
+      res.render('index.jade', { 
+        locals: locals
+      });
+    };
+
   var auth = req.session.auth;  
   if (auth && auth.loggedIn) { 
     var id = auth.facebook.user.id;
 
-    console.log(id);
-    //User.
-    //find by fb id, does this need an index? I think yes.
+    User.findOne({ facebookId: id}, function(err, user) {
+      if(user) {
+        if(user.campaigns) {
+          locals.campaigns = user.campaigns;
+        }
+        if(user.characters) {
+          locals.characters = user.characters;
+        }
+      }
+      render();
+
+    });
+  } else {
+    render();    
+  }
+});
+
+app.get('/campaign/new', restrict, function(req,res) {
+  res.render('campaign/new.jade');
+});
+
+app.get('/character/new', restrict, function(req,res) {
+  res.render('character/new.jade', { character: new Character() });
+});
+
+app.post('/character/new', function(req, res){
+
+  var character = new Character();
+  for(var p in req.body.character) {
+    var v = req.body.character[p];
+    character[p] = v;
   }
 
-    res.render('index.jade', { locals: {
-        title: 'tabula',
-        capabilities: {
-          
-        }
+  character.save(function(e,data){
+    if(e) {
+    // todo:    
+    } else {
+
+      User.findOne({ facebookId: req.session.auth.facebook.user.id}, function(err, user) {
+        user.characters.push( {id: data.id, name: data.name} );
+        user.save();
+      });
+
+
+      res.redirect('/');
     }
-    });
+  });
+
+  
+
+    
+    
 });
 
 app.post('/post/new', function(req, res){

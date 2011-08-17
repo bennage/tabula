@@ -3,7 +3,7 @@
 def run_all_tests
   print `clear`
   puts "Tests run #{Time.now.strftime('%Y-%m-%d %H:%M:%S')}"
-  `expresso -b ./specs/*.js 2>&1`
+  `expresso -b ./specs/*.js >&2&1`
 end
 
 warning_icon = '/usr/share/icons/Humanity/status/48/dialog-warning.svg'

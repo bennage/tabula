@@ -6,7 +6,7 @@ script#post-template(type='text/x-jquery-tmpl')
 		.when ${when}
 		.body ${body}	
 	
-h1= title
+h1 tabula
 
 #account
 	- if (!everyauth.loggedIn)
@@ -17,6 +17,16 @@ h1= title
 			-var user = everyauth.facebook.user; 
 			p= user.first_name + ' ' + user.last_name
 				a(href='/logout') Sign Out
+			.create
+				p
+					a(href='/campaign/new') Create Campaign
+				p
+					a(href='/character/new') Create Character
+			- if (user.characters)
+				ul.characters
+					- each name, id in user.characters
+						li
+							a(href='/character/' + id)= name
 
 #context
 	div character

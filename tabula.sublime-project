@@ -8,18 +8,50 @@
 	"buffers":
 	[
 		{
-			"file": "/home/bennage/dev/tabula/autotest.rb",
+			"file": "/home/bennage/dev/tabula/app.js",
 			"settings":
 			{
-				"buffer_size": 1005,
+				"buffer_size": 4305,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/bennage/dev/tabula/specs/the_model_for_a_Post.js",
+			"file": "/home/bennage/dev/tabula/views/campaign/new.jade",
 			"settings":
 			{
-				"buffer_size": 1264,
+				"buffer_size": 15,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/bennage/dev/tabula/views/character/new.jade",
+			"settings":
+			{
+				"buffer_size": 454,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/bennage/dev/tabula/views/index.jade",
+			"settings":
+			{
+				"buffer_size": 844,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/bennage/dev/tabula/models/schema.js",
+			"settings":
+			{
+				"buffer_size": 685,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/bennage/dev/tabula/views/layout.jade",
+			"settings":
+			{
+				"buffer_size": 206,
 				"line_ending": "Unix"
 			}
 		}
@@ -51,9 +83,12 @@
 	},
 	"file_history":
 	[
+		"/home/bennage/dev/tabula/autotest.rb",
+		"/home/bennage/dev/tabula/specs/routes.js",
+		"/home/bennage/dev/tabula/specs/model_for_a_Post.js",
 		"/home/bennage/dev/tabula/specs/the_model_for_a_Post.js",
-		"/home/bennage/dev/tabula/autotest.watchr",
 		"/home/bennage/dev/tabula/test.txt",
+		"/home/bennage/dev/tabula/autotest.watchr",
 		"/home/bennage/dev/tabula/models/Post.js",
 		"/home/bennage/dev/tabula/specs/tests.js",
 		"/home/bennage/dev/tabula/app.js",
@@ -123,6 +158,39 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"User",
+			"post",
+			"Post",
+			"post",
+			"Post",
+			"post",
+			"Post",
+			"post",
+			"campaign",
+			"city",
+			"City",
+			"city",
+			"City",
+			"city",
+			"City",
+			"city",
+			"City",
+			"city",
+			"user",
+			"doc",
+			"docs",
+			"x()",
+			"x",
+			"render ",
+			"assert.equal",
+			"ouput",
+			"test.",
+			"test",
+			"test.expect(2);",
+			"function(test)",
+			"] = ",
+			"};",
+			"exports[",
 			"Sir Rodney",
 			"\"",
 			"__dirname",
@@ -186,23 +254,130 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/home/bennage/dev/tabula/autotest.rb",
+					"file": "/home/bennage/dev/tabula/app.js",
 					"settings":
 					{
-						"buffer_size": 1005,
+						"buffer_size": 4305,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								765,
-								765
+								3509,
+								3509
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 1921,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/bennage/dev/tabula/views/campaign/new.jade",
+					"settings":
+					{
+						"buffer_size": 15,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15,
+								15
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/jade-tmbundle/Syntaxes/Jade.tmLanguage"
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/bennage/dev/tabula/views/character/new.jade",
+					"settings":
+					{
+						"buffer_size": 454,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								404,
+								404
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/jade-tmbundle/Syntaxes/Jade.tmLanguage"
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/bennage/dev/tabula/views/index.jade",
+					"settings":
+					{
+						"buffer_size": 844,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								679,
+								679
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/jade-tmbundle/Syntaxes/Jade.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/bennage/dev/tabula/models/schema.js",
+					"settings":
+					{
+						"buffer_size": 685,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								273,
+								273
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -213,29 +388,27 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "/home/bennage/dev/tabula/specs/the_model_for_a_Post.js",
+					"buffer": 5,
+					"file": "/home/bennage/dev/tabula/views/layout.jade",
 					"settings":
 					{
-						"buffer_size": 1264,
+						"buffer_size": 206,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1264,
-								1264
+								32,
+								32
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Jade/jade-tmbundle/Syntaxes/Jade.tmLanguage"
 						},
 						"translation.x": 0,
-						"translation.y": 468,
+						"translation.y": 0,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -298,6 +471,6 @@
 	"show_minimap": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 293,
+	"side_bar_width": 209,
 	"status_bar_visible": true
 }
