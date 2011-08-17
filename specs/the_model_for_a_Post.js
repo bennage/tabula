@@ -41,6 +41,16 @@ exports['Post can process "narrate" actions'] = function(test){
     test.done();
 };
 
+exports['trims the body when processing an action'] = function(test){
+    test.expect(2);
+
+    var post = new Post();
+    post.parse('say this has an extra space ')
+    test.equal('say', post.type);
+    test.equal('this has an extra space', post.body);
+    test.done();
+};
+
 exports['A new post time is set to now.'] = function(test){
     test.expect(1);
 
