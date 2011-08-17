@@ -1,62 +1,55 @@
+var assert =require('assert');
+
 var Post = require('../models/Post');
 
-exports['Post can process "say" actions'] = function(test){
-    test.expect(2);
+module.exports = {
+    'Post can process "say" actions': function(){
+        var post = new Post();
+        post.parse('say What did you say?')
 
-    var post = new Post();
-    post.parse('say What did you say?')
-    test.equal('say', post.type);
-    test.equal('What did you say?', post.body);
-    test.done();
-};
+        assert.equal('say', post.type);
+        assert.equal('What did you say?', post.body);
 
-exports['Post can process "move" actions'] = function(test){
-    test.expect(2);
+        assert.equal(0,1);
+    },
 
-    var post = new Post();
-    post.parse('move to L4')
-    test.equal('move', post.type);
-    test.equal('to L4', post.body);
-    test.done();
-};
+    'Post can process "move" actions': function(){
+        var post = new Post();
+        post.parse('move to L4')
 
+        assert.equal('move', post.type);
+        assert.equal('to L4', post.body);
+    },
 
-exports['Post can process "think" actions'] = function(test){
-    test.expect(2);
+    'Post can process "think" actions': function(){
+        var post = new Post();
+        post.parse('think happy thoughts!');
 
-    var post = new Post();
-    post.parse('think happy thoughts!')
-    test.equal('think', post.type);
-    test.equal('happy thoughts!', post.body);
-    test.done();
-};
+        assert.equal('think', post.type);
+        assert.equal('happy thoughts!', post.body);
+    },
 
-exports['Post can process "narrate" actions'] = function(test){
-    test.expect(2);
+    'Post can process "narrate" actions': function(){
+        var post = new Post();
+        post.parse('Magic Horse goes for a walk.')
 
-    var post = new Post();
-    post.parse('Magic Horse goes for a walk.')
-    test.equal('narrate', post.type);
-    test.equal('Magic Horse goes for a walk.', post.body);
-    test.done();
-};
+        assert.equal('narrate', post.type);
+        assert.equal('Magic Horse goes for a walk.', post.body);
+    },
 
-exports['trims the body when processing an action'] = function(test){
-    test.expect(2);
+    'trims the body when processing an action': function(){
+        var post = new Post();
+        post.parse('say this has an extra space ')
 
-    var post = new Post();
-    post.parse('say this has an extra space ')
-    test.equal('say', post.type);
-    test.equal('this has an extra space', post.body);
-    test.done();
-};
+        assert.equal('say', post.type);
+        assert.equal('this has an extra space', post.body);
+    },
 
-exports['A new post time is set to now.'] = function(test){
-    test.expect(1);
+    'A new post time is set to now.': function(){
+        var post = new Post();
+        var now = new Date();
+        var delta = post.when - now;
 
-    var post = new Post();
-    var now = new Date();
-    var delta = post.when - now;
-    test.equal(0, delta);
-    test.done();
-};
+        assert.equal(0, delta);
+    }
+}

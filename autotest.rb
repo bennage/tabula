@@ -3,7 +3,7 @@
 def run_all_tests
   print `clear`
   puts "Tests run #{Time.now.strftime('%Y-%m-%d %H:%M:%S')}"
-  `nodeunit ./specs`
+  `expresso -b ./specs/*.js 2>&1`
 end
 
 warning_icon = '/usr/share/icons/Humanity/status/48/dialog-warning.svg'
@@ -12,17 +12,21 @@ happy_icon = '/usr/share/icons/Humanity/emblems/48/emblem-OK.svg'
 ignore = ['public','node_modules','views']
 dirs = Dir.glob('*/').map { |d| d.sub '/','' }.select { |d| !ignore.any? { |i| i == d }}.join('|')
 pattern = '(' + dirs + ')(/.*)+.js'
+failurePattern = /Failures:.+?(\d+)/
 
 run_all_tests
 
 watch(pattern) do |m| 
-  ouput = run_all_tests.to_s
-  if ouput.include? 'FAILURES'
+  output = run_all_tests.to_s
+  
+  failurePattern.match(output) { |match| puts 'matches ' + match[0] }
+
+  if output.include? 'Failures'
     `notify-send -u critical "Red" "Failing Test(s)" -i #{warning_icon} -t 1500`
   else 
     `notify-send -u critical "Green" "All tests are passing." -i #{happy_icon} -t 500`
   end
-  puts ouput
+  puts output
 end
 
 @interrupted = false
