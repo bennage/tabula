@@ -9,8 +9,6 @@ module.exports = {
 
         assert.equal('say', post.type);
         assert.equal('What did you say?', post.body);
-
-        assert.equal(0,1);
     },
 
     'Post can process "move" actions': function(){
@@ -28,7 +26,7 @@ module.exports = {
         assert.equal('think', post.type);
         assert.equal('happy thoughts!', post.body);
     },
-
+    
     'Post can process "narrate" actions': function(){
         var post = new Post();
         post.parse('Magic Horse goes for a walk.')

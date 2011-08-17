@@ -12,20 +12,19 @@ happy_icon = '/usr/share/icons/Humanity/emblems/48/emblem-OK.svg'
 ignore = ['public','node_modules','views']
 dirs = Dir.glob('*/').map { |d| d.sub '/','' }.select { |d| !ignore.any? { |i| i == d }}.join('|')
 pattern = '(' + dirs + ')(/.*)+.js'
-failurePattern = /Failures:.+?(\d+)/
+failurePattern = /Failures:\s+(\d+)/
 
 run_all_tests
 
 watch(pattern) do |m| 
   output = run_all_tests.to_s
   
-  failurePattern.match(output) { |match| puts 'matches ' + match[0] }
-
-  if output.include? 'Failures'
-    `notify-send -u critical "Red" "Failing Test(s)" -i #{warning_icon} -t 1500`
-  else 
-    `notify-send -u critical "Green" "All tests are passing." -i #{happy_icon} -t 500`
+  if output =~ /Failures:\s+(\d+)/
+    `notify-send -u critical "Red" "#{$1} failing test(s)." -i #{warning_icon}`
+  else
+    `notify-send -u critical "Green" "All tests are passing." -i #{happy_icon}`
   end
+
   puts output
 end
 
