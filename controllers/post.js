@@ -6,7 +6,6 @@ module.exports = {
 
     index: function(req, res){
       Post.find({}, function(error,docs){ 
-      // debugger;
         res.json(docs.reverse()); 
       });
     },
