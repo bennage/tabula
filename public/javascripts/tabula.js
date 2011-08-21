@@ -10,7 +10,7 @@
 			$.ajax({
 				data: { post: ta.val() },
 				contentType: 'application/x-www-form-urlencoded',
-				url: '/post/new',
+				url: '/posts/create',
 				type: 'post',
 				success: renderStream
 			});			
@@ -18,7 +18,7 @@
 		},
 		clear: function() {
 			$.ajax({
-				url: '/post/clear',
+				url: '/posts/clear',
 				type: 'post'
 			});
 			$('#stream').empty();
@@ -98,7 +98,7 @@ function roll2(dice)
 
 	function getStream() {
 		$.ajax({
-			url: '/stream',
+			url: '/posts',
 			success: renderStream
 		});
 	}
@@ -116,7 +116,7 @@ function roll2(dice)
 			if(actions[action]) { actions[action](); }
 		});
 
-		// getStream();
+		getStream();
 	});
 
 }());

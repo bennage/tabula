@@ -161,7 +161,7 @@ function bootController(app, file) {
         break;
       default:
         console.log('custom ' + action);
-        app.get(action, fn);
+        app.post(action, fn);
         break;
     }
   });
