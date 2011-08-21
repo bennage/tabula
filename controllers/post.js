@@ -4,6 +4,13 @@ var Post = mongoose.model('Post');
 
 module.exports = {
 
+    index: function(req, res){
+      Post.find({}, function(error,docs){ 
+      // debugger;
+        res.json(docs.reverse()); 
+      });
+    },
+
     create: function(req, res) {
         var post = new Post();
         post.parse(req.body.post);
@@ -16,13 +23,6 @@ module.exports = {
       Post.collection.remove({}, function(e){
         console.dir(e);
       });
-    },
-
-    index: function(req, res){
-      Post.find({}, function(error,docs){ 
-      // debugger;
-        res.json(docs.reverse()); 
-      });
     }
-    
+
 };

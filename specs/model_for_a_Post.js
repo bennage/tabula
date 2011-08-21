@@ -1,5 +1,4 @@
-var assert =require('assert');
-
+var assert = require('assert');
 var Post = require('../models/Post');
 
 module.exports = {
@@ -7,40 +6,40 @@ module.exports = {
         var post = new Post();
         post.parse('say What did you say?')
 
-        assert.eql('say', post.type);
-        assert.eql('What did you say?', post.body);
+        assert.equal('say', post.type);
+        assert.equal('What did you say?', post.body);
     },
 
     'Post can process "move" actions': function(){
         var post = new Post();
         post.parse('move to L4')
 
-        assert.eql('move', post.type);
-        assert.eql('to L4', post.body);
+        assert.equal('move', post.type);
+        assert.equal('to L4', post.body);
     },
 
     'Post can process "think" actions': function(){
         var post = new Post();
         post.parse('think happy thoughts!');
 
-        assert.eql('think', post.type);
-        assert.eql('happy thoughts!', post.body);
+        assert.equal('think', post.type);
+        assert.equal('happy thoughts!', post.body);
     },
 
     'Post can process "narrate" actions': function(){
         var post = new Post();
         post.parse('Magic Horse goes for a walk.')
 
-        assert.eql('narrate', post.type);
-        assert.eql('Magic Horse goes for a walk.', post.body);
+        assert.equal('narrate', post.type);
+        assert.equal('Magic Horse goes for a walk.', post.body);
     },
 
     'trims the body when processing an action': function(){
         var post = new Post();
         post.parse('say this has an extra space ')
 
-        assert.eql('say', post.type);
-        assert.eql('this has an extra space', post.body);
+        assert.equal('say', post.type);
+        assert.equal('this has an extra space', post.body);
     },
 
     'A new post time is set to now.': function(){
@@ -48,6 +47,6 @@ module.exports = {
         var now = new Date();
         var delta = post.when - now;
 
-        assert.eql(0, delta);
+        assert.equal(0, delta);
     }
 }
