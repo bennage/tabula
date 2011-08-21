@@ -17,6 +17,9 @@ module.exports = function(app, mongoose){
       context[key] = global[key];
     }
 
+    // console.log('context for module ' + file);
+    // console.dir(context);
+
     vm.runInNewContext(str, context, file);
   });
 };

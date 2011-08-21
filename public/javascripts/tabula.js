@@ -116,7 +116,7 @@ function roll2(dice)
 			if(actions[action]) { actions[action](); }
 		});
 
-		getStream();
+		// getStream();
 	});
 
 }());
