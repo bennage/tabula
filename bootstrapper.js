@@ -17,7 +17,7 @@ exports.boot = function(app){
 
 // App settings and middleware
 
-function configureAuth() {
+function configureAuth(app) {
   everyauth.debug = true;
 
   // everyauth.everymodule.findUserById( function(id,callback){
@@ -46,11 +46,14 @@ function configureAuth() {
         return promise;
     })
     .redirectPath('http://whatsbetween.us:3000');
+
+  // mixin view helpers for everyauth
+  everyauth.helpExpress(app);
 }
 
 function bootApplication(app) {
 
-  configureAuth();
+  configureAuth(app);
   
   app.configure('development', function(){
     app.use(express.logger('tiny'));
@@ -71,47 +74,40 @@ function bootApplication(app) {
     app.use(app.router);
   });
 
-
   app.configure('production', function(){
     app.use(express.errorHandler()); 
   });
 
+  // // Example 500 page
+  // app.use(function(err, req, res, next){
+  //   res.render('500');
+  // });
 
-  // Example 500 page
-  app.use(function(err, req, res, next){
-    res.render('500');
-  });
-
-  // Example 404 page via simple Connect middleware
-  app.use(function(req, res){
-    res.render('404');
-  });
-
-  // Setup ejs views as default, with .html as the extension
-  app.set('views', __dirname + '/views');
-  app.register('.html', require('ejs'));
-  app.set('view engine', 'html');
+  // // Example 404 page via simple Connect middleware
+  // app.use(function(req, res){
+  //   res.render('404');
+  // });
 
   // Some dynamic view helpers
-  app.dynamicHelpers({
-    request: function(req){
-      return req;
-    },
+  // app.dynamicHelpers({
+  //   request: function(req){
+  //     return req;
+  //   },
 
-    hasMessages: function(req){
-      if (!req.session) return false;
-      return Object.keys(req.session.flash || {}).length;
-    },
+  //   hasMessages: function(req){
+  //     if (!req.session) return false;
+  //     return Object.keys(req.session.flash || {}).length;
+  //   },
 
-    messages: function(req){
-      return function(){
-        var msgs = req.flash();
-        return Object.keys(msgs).reduce(function(arr, type){
-          return arr.concat(msgs[type]);
-        }, []);
-      }
-    }
-  });
+  //   messages: function(req){
+  //     return function(){
+  //       var msgs = req.flash();
+  //       return Object.keys(msgs).reduce(function(arr, type){
+  //         return arr.concat(msgs[type]);
+  //       }, []);
+  //     }
+  //   }
+  // });
 }
 
 // Bootstrap controllers
@@ -120,6 +116,7 @@ function bootControllers(app) {
   fs.readdir(__dirname + '/controllers', function(err, files){
     if (err) throw err;
     files.forEach(function(file){
+      console.log('loading controller: ' + file);
       bootController(app, file);
     });
   });
@@ -137,7 +134,9 @@ function bootController(app, file) {
   if (name == 'app') prefix = '/';
 
   Object.keys(actions).map(function(action){
-    var fn = controllerAction(name, plural, action, actions[action]);
+    //todo: examine the 'magic' here
+    // var fn = controllerAction(name, plural, action, actions[action]);
+    var fn = actions[action];
     switch(action) {
       case 'index':
         app.get(prefix, fn);
@@ -159,6 +158,10 @@ function bootController(app, file) {
         break;
       case 'destroy':
         app.del(prefix + '/:id', fn);
+        break;
+      default:
+        console.log('custom ' + action);
+        app.get(action, fn);
         break;
     }
   });
@@ -213,48 +216,36 @@ function restrict(req, res, next) {
   }
 }
 
-// load up routes
-require('./boot')(app, mongoose);
+// var User = mongoose.model('User');
+// var Character = mongoose.model('Character');
 
-// require('./routes/main')(app, mongoose);
-// require('./routes/post')(app, mongoose);
+// app.get('/campaign/new', restrict, function(req,res) {
+//   res.render('campaign/new.jade');
+// });
 
-app.resource('posts', require('./routes/post'));
+// app.get('/character/new', restrict, function(req,res) {
+//   res.render('character/new.jade', { character: new Character() });
+// });
 
-var User = mongoose.model('User');
-var Character = mongoose.model('Character');
+// app.post('/character/new', function(req, res){
 
-app.get('/campaign/new', restrict, function(req,res) {
-  res.render('campaign/new.jade');
-});
+//   var character = new Character();
+//   for(var p in req.body.character) {
+//     var v = req.body.character[p];
+//     character[p] = v;
+//   }
 
-app.get('/character/new', restrict, function(req,res) {
-  res.render('character/new.jade', { character: new Character() });
-});
+//   character.save(function(e,data){
+//     if(e) {
+//     // todo:    
+//     } else {
 
-app.post('/character/new', function(req, res){
+//       User.findOne({ facebookId: req.session.auth.facebook.user.id}, function(err, user) {
+//         user.characters.push( {id: data.id, name: data.name} );
+//         user.save();
+//       });
 
-  var character = new Character();
-  for(var p in req.body.character) {
-    var v = req.body.character[p];
-    character[p] = v;
-  }
-
-  character.save(function(e,data){
-    if(e) {
-    // todo:    
-    } else {
-
-      User.findOne({ facebookId: req.session.auth.facebook.user.id}, function(err, user) {
-        user.characters.push( {id: data.id, name: data.name} );
-        user.save();
-      });
-
-      res.redirect('/');
-    }
-  });
-});
-
-
-// mixin view helpers for everyauth
-everyauth.helpExpress(app);
+//       res.redirect('/');
+//     }
+//   });
+// });
