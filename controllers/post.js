@@ -32,7 +32,7 @@ module.exports = {
     },
 
     'get /posts/sample': [
-      function(req,res, next) {
+      function(req, res, next) {
         console.log('1');
         next();
       },

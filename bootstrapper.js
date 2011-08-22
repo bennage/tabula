@@ -121,28 +121,36 @@ function bootController(app, file) {
         break;
 
       default:
-        var route = action.split(' ');
+        // if there is a space, the first part is the verb,
+        // followed by the route
+        // otherwise it's just the route
+        var parts = action.split(' ');
         var verb = 'post';
-        if(route.length === 2) {
-          verb = route[0];
-          action = route[1];
+        var route = action;
+        if(parts.length === 2) {
+          verb = parts[0];
+          route = parts[1];
         }
 
-        console.log('custom ' + verb + ': ' + action);
-console.log(Array.isArray(fn));
-        if(!Array.isArray(fn)){
-          fn = [fn];
-        }
-console.log(Array.isArray(fn));
-console.log(fn.length);
-        fn.splice(0,0,action);
-        var args = fn;
-console.dir(args);
-console.log(args.length);
-        app[verb].apply(app, args);
+        interpretAction(app, verb, route, fn);
         break;
     }
   });
+}
+
+function interpretAction(app, verb, route, functions) {
+  console.log('custom ' + verb + ': ' + route);
+
+  // ensure that we have an array of functions 
+  // (to allow for middleware)
+  if(!Array.isArray(functions)){
+    functions = [functions];
+  }
+  
+  // prepend the route
+  functions.splice(0,0,route);
+
+  app[verb].apply(app, functions);
 }
 
 // Proxy res.render() to add some magic
