@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-// var CharacterSummary = mongoose.model('CharacterSummary');
 var Character = mongoose.model('Character');
 var User = mongoose.model('User');
 

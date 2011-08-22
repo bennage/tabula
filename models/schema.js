@@ -25,7 +25,7 @@ var User = new Schema({
 });
 
 var Campaign = new Schema({
-    title: String,
+    name: String,
     master: ObjectId,
     users: [ObjectId],
     characters: [ObjectId]

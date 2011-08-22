@@ -1,1 +1,11 @@
 h1 new campaign
+
+form(method="post")
+  fieldset
+    legend setup campaign
+    p
+      label(for="campaign[name]") name:
+        input(type="text", name="campaign[name]", value=campaign.name)
+
+  p.buttons
+    input(type="submit", value="Save")

@@ -28,6 +28,11 @@ h1 tabula
 					- each character in characters
 						li
 							a(href='/characters/' + character.id)= character.name
+			- if (campaigns)
+				ul.campaigns
+					- each campaign in campaigns
+						li
+							a(href='/campaigns/' + campaign.id)= campaign.name
 
 #context
 	div character

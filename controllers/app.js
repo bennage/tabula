@@ -18,12 +18,8 @@ module.exports = {
 
         User.findOne({ facebookId: id}, function(err, user) {
           if(user) {
-            if(user.campaigns) {
-              locals.campaigns = user.campaigns;
-            }
-            if(user.characters) {
-              locals.characters = user.characters;
-            }
+            locals.campaigns = user.campaigns;
+            locals.characters = user.characters;
           }
           render();
 
