@@ -11,8 +11,15 @@ module.exports = {
     },
 
     create: function(req, res) {
+        var campaignId = req.params.campaignId;
+        var characterId = req.params.characterId;
+
         var post = new Post();
         post.parse(req.body.post);
+
+        post.campaignId = campaignId;
+        post.characterId = characterId;
+
         post.save(function(e,data) {
             res.json(data);
         });
@@ -22,6 +29,17 @@ module.exports = {
       Post.collection.remove({}, function(e){
         console.dir(e);
       });
-    }
+    },
+
+    'get /posts/sample': [
+      function(req,res, next) {
+        console.log('1');
+        next();
+      },
+      function(req,res) {
+        console.log('2');
+        res.render(500);
+      }
+    ]
 
 };

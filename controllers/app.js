@@ -18,6 +18,7 @@ module.exports = {
 
         User.findOne({ facebookId: id}, function(err, user) {
           if(user) {
+            req.session.user = user;
             locals.campaigns = user.campaigns;
             locals.characters = user.characters;
           }

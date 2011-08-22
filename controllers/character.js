@@ -17,19 +17,15 @@ module.exports = {
       }
 
       character.save(function(e,data){
-        var facebookId = req.session.auth.facebook.user.id;
-        User.findOne({ facebookId: facebookId}, function(err, user) {
-          // user.characters.push( { name: data.name, characterId: data.characterId } );
+        User.findById(req.session.user._id, function(err, user) {
           user.characters.push( data );
-
           user.save();
+          res.redirect('/');
         });
-        res.redirect('/');
       });
     },
 
     show: function(req,res) {
-      debugger;
       Character.findById(req.params.id, function(e,character) {
           if(!character) {
             res.render(404);            

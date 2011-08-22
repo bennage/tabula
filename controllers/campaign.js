@@ -13,7 +13,6 @@ module.exports = {
       var campaign = new Campaign();
       var property;
 
-      debugger;
       for(property in req.body.campaign) {
         campaign[property] = req.body.campaign[property];
       }

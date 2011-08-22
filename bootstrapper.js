@@ -119,9 +119,27 @@ function bootController(app, file) {
       case 'destroy':
         app.del(prefix + '/:id', fn);
         break;
+
       default:
-        console.log('custom ' + action);
-        app.post(action, fn);
+        var route = action.split(' ');
+        var verb = 'post';
+        if(route.length === 2) {
+          verb = route[0];
+          action = route[1];
+        }
+
+        console.log('custom ' + verb + ': ' + action);
+console.log(Array.isArray(fn));
+        if(!Array.isArray(fn)){
+          fn = [fn];
+        }
+console.log(Array.isArray(fn));
+console.log(fn.length);
+        fn.splice(0,0,action);
+        var args = fn;
+console.dir(args);
+console.log(args.length);
+        app[verb].apply(app, args);
         break;
     }
   });
