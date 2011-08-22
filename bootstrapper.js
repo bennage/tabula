@@ -38,6 +38,8 @@ function bootApplication(app) {
     app.use(express.errorHandler()); 
   });
 
+  app.redirect('login','/');
+
   // // Example 500 page
   // app.use(function(err, req, res, next){
   //   res.render('500');
@@ -49,25 +51,27 @@ function bootApplication(app) {
   // });
 
   // Some dynamic view helpers
-  // app.dynamicHelpers({
-  //   request: function(req){
-  //     return req;
-  //   },
+  app.dynamicHelpers({
+    request: function(req){
+      return req;
+    },
 
-  //   hasMessages: function(req){
-  //     if (!req.session) return false;
-  //     return Object.keys(req.session.flash || {}).length;
-  //   },
+    hasMessages: function(req){
+      if (!req.session) return false;
+      return Object.keys(req.session.flash || {}).length > 0;
+    },
 
-  //   messages: function(req){
-  //     return function(){
-  //       var msgs = req.flash();
-  //       return Object.keys(msgs).reduce(function(arr, type){
-  //         return arr.concat(msgs[type]);
-  //       }, []);
-  //     }
-  //   }
-  // });
+    messages: function(req){
+        var flashes = req.flash();
+        var agg = Object.keys(flashes).reduce(function(accum, type){
+            var flattened = flashes[type].map(function(item){
+              return { type: type, content: item };
+            });
+          return accum.concat(flattened);
+        }, []);
+        return agg;
+    }
+  });
 }
 
 // Bootstrap controllers
@@ -189,15 +193,4 @@ function controllerAction(name, plural, action, fn) {
     };
     fn.apply(this, arguments);
   };
-}
-
-function restrict(req, res, next) {
-  var auth = req.session.auth;  
-  if (auth && auth.loggedIn) {
-    next();
-  } else {
-    //todo: handle json
-    req.session.error = 'Access denied!';
-    res.redirect('/login');
-  }
 }

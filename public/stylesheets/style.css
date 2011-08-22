@@ -141,3 +141,6 @@ a {
 #board {
   float: left;
 }
+#messages .error {
+  color: #f00;
+}

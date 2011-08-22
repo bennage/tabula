@@ -2,6 +2,18 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var Post = mongoose.model('Post');
 
+function restrict(req, res, next) {
+  var auth = req.session.auth;  
+  if (auth && auth.loggedIn) {
+    next();
+  } else {
+    //todo: handle json
+    req.flash('error','Access denied');
+    req.session.error = 'Access denied!';
+    res.redirect('login');
+  }
+}
+
 module.exports = {
 
     index: function(req, res){
@@ -32,10 +44,7 @@ module.exports = {
     },
 
     'get /posts/sample': [
-      function(req, res, next) {
-        console.log('1');
-        next();
-      },
+      restrict,
       function(req,res) {
         console.log('2');
         res.render(500);

@@ -6,4 +6,10 @@ html
     script(src='/javascripts/jquery-1.6.2.min.js')
     script(src='/javascripts/jquery.tmpl.min.js')
 
-  body!= body
+  body
+    -if(hasMessages) 
+        #messages
+            -each message in messages
+                div(class=message.type)=message.content
+    a(href='/posts/sample') test
+    #main!= body
