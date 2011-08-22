@@ -15,6 +15,7 @@ h1 tabula
 	- else
 		- if (everyauth.facebook)
 			-var user = everyauth.facebook.user; 
+
 			p= user.first_name + ' ' + user.last_name
 				a(href='/logout') Sign Out
 			.create
@@ -22,11 +23,11 @@ h1 tabula
 					a(href='/campaigns/add') Create Campaign
 				p
 					a(href='/characters/add') Create Character
-			- if (user.characters)
+			- if (characters)
 				ul.characters
-					- each name, id in user.characters
+					- each character in characters
 						li
-							a(href='/character/' + id)= name
+							a(href='/characters/' + character.id)= character.name
 
 #context
 	div character

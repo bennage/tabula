@@ -20,8 +20,8 @@ var CharacterSummary = new Schema({
 var User = new Schema({
   name: String,
   facebookId: {type: String, index: true },
-  campaigns: [{id:ObjectId, name:String}],
-  characters: [CharacterSummary]
+  campaigns: [CharacterSummary],
+  characters: [Character]
 });
 
 var Campaign = new Schema({
