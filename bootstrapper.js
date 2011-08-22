@@ -1,11 +1,7 @@
 var fs = require('fs');
 var express = require('express');
-
-var everyauth = require('everyauth');
 var mongoose = require('mongoose');
 var models = require('./models/schema');
-
-var config = require('./config');
 
 var connectionString = process.env['MONGOHQ_URL'] ||'mongodb://localhost/tabula';
 mongoose.connect(connectionString);
@@ -17,44 +13,8 @@ exports.boot = function(app){
 
 // App settings and middleware
 
-function configureAuth(app) {
-  everyauth.debug = true;
-
-  // everyauth.everymodule.findUserById( function(id,callback){
-  //   debugger;
-  //   callback(null, usersById[id]);
-  // });  
-
-  everyauth.facebook
-    .appId(config.fb.appId)
-    .appSecret(config.fb.appSecret)
-    .findOrCreateUser( function(session, accessToken, accessTokenExtra, fbUserMetadata){
-        var id = fbUserMetadata.id;
-        var promise = this.Promise();
-        User.findOne({ facebookId: id}, function(err, result) {
-          var user;
-          if(!result) {
-            user = new User();
-            user.facebookId = id;
-            user.name = fbUserMetadata.name;
-            user.save();
-          } else {
-            user = result.doc;
-          }
-          promise.fulfill(user);
-        });
-        return promise;
-    })
-    .redirectPath('http://whatsbetween.us:3000');
-
-  // mixin view helpers for everyauth
-  everyauth.helpExpress(app);
-}
-
 function bootApplication(app) {
 
-  configureAuth(app);
-  
   app.configure('development', function(){
     app.use(express.logger('tiny'));
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
@@ -70,7 +30,7 @@ function bootApplication(app) {
     app.use(express.session({secret:'bennage'}));
     app.use(require('stylus').middleware({ src: __dirname + '/public' }));
     app.use(express.static(__dirname + '/public'));
-    app.use(everyauth.middleware());
+    app.use(require('./auth').configure(app));
     app.use(app.router);
   });
 
@@ -145,10 +105,10 @@ function bootController(app, file) {
         app.get(prefix + '/:id.:format?', fn);
         break;
       case 'add':
-        app.get(prefix + '/:id/add', fn);
+        app.get(prefix + '/add', fn);
         break;
       case 'create':
-        app.post(prefix + '/:id', fn);
+        app.post(prefix + '/add', fn);
         break;
       case 'edit':
         app.get(prefix + '/:id/edit', fn);
@@ -215,37 +175,3 @@ function restrict(req, res, next) {
     res.redirect('/login');
   }
 }
-
-// var User = mongoose.model('User');
-// var Character = mongoose.model('Character');
-
-// app.get('/campaign/new', restrict, function(req,res) {
-//   res.render('campaign/new.jade');
-// });
-
-// app.get('/character/new', restrict, function(req,res) {
-//   res.render('character/new.jade', { character: new Character() });
-// });
-
-// app.post('/character/new', function(req, res){
-
-//   var character = new Character();
-//   for(var p in req.body.character) {
-//     var v = req.body.character[p];
-//     character[p] = v;
-//   }
-
-//   character.save(function(e,data){
-//     if(e) {
-//     // todo:    
-//     } else {
-
-//       User.findOne({ facebookId: req.session.auth.facebook.user.id}, function(err, user) {
-//         user.characters.push( {id: data.id, name: data.name} );
-//         user.save();
-//       });
-
-//       res.redirect('/');
-//     }
-//   });
-// });

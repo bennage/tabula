@@ -19,9 +19,9 @@ h1 tabula
 				a(href='/logout') Sign Out
 			.create
 				p
-					a(href='/campaign/new') Create Campaign
+					a(href='/campaigns/add') Create Campaign
 				p
-					a(href='/character/new') Create Character
+					a(href='/characters/add') Create Character
 			- if (user.characters)
 				ul.characters
 					- each name, id in user.characters

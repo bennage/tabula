@@ -12,11 +12,16 @@ var Character = new Schema({
   userId: ObjectId
 });
 
+var CharacterSummary = new Schema({
+  name: String,
+  characterId: ObjectId
+});
+
 var User = new Schema({
   name: String,
   facebookId: {type: String, index: true },
   campaigns: [{id:ObjectId, name:String}],
-  characters: [{id:ObjectId, name:String}]
+  characters: [CharacterSummary]
 });
 
 var Campaign = new Schema({
