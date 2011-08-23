@@ -268,3 +268,6 @@ h1 {
   font-size: 80%;
   opacity: 0.4;
 }
+.post.ooc .meta {
+  background-color: #998fa3;
+}

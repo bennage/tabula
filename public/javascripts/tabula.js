@@ -1,4 +1,5 @@
 (function(){
+	var showOoc = true;
 	var actions = {
 		
 		post: function() {
@@ -16,6 +17,7 @@
 			});			
 			ta.val('');
 		},
+
 		clear: function() {
 			$.ajax({
 				url: '/posts/clear',
@@ -24,6 +26,16 @@
 			$('#stream').empty();
 
 		},
+
+		toggleOoc: function() {
+			if(showOoc) {
+				$('.ooc').hide('fast');
+			} else {
+				$('.ooc').show('fast');
+			}
+			showOoc = !showOoc;
+		},
+
 		roll: function() {
 			var ta = $('#post');
 			var result = roll(ta.val());

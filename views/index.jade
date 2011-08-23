@@ -43,6 +43,8 @@ h1 tabula
 			a(href='/campaigns/' + currentCampaign.id)= currentCampaign.name		
 #board
 	-if(currentCampaign)
+		#commands
+			button(data-action='toggleOoc') toggle ooc
 		#chat
 			.input
 				textarea(id='post')
