@@ -7,47 +7,15 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/home/bennage/dev/tabula/controllers/app.js",
-			"settings":
-			{
-				"buffer_size": 770,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/bennage/dev/tabula/bootstrapper.js",
-			"settings":
-			{
-				"buffer_size": 6513,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/bennage/dev/tabula/controllers/post.js",
-			"settings":
-			{
-				"buffer_size": 567,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/etc/hosts",
-			"settings":
-			{
-				"buffer_size": 341,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 69,
+		"height": 107,
 		"selected_items":
 		[
 			[
-				"inde",
+				"ind",
 				"Indentation: Convert to Spaces"
 			],
 			[
@@ -55,11 +23,15 @@
 				"Indentation: Convert to Spaces"
 			],
 			[
+				"inde",
+				"Indentation: Convert to Spaces"
+			],
+			[
 				"",
 				"Indentation: Convert to Spaces"
 			]
 		],
-		"width": 467
+		"width": 392
 	},
 	"console":
 	{
@@ -75,25 +47,33 @@
 	},
 	"file_history":
 	[
+		"/home/bennage/dev/tabula/public/stylesheets/style.styl",
+		"/home/bennage/dev/tabula/bootstrapper.js",
+		"/home/bennage/dev/tabula/controllers/post.js",
+		"/home/bennage/dev/tabula/controllers/campaign.js",
+		"/home/bennage/dev/tabula/views/campaign/show.jade",
+		"/home/bennage/dev/tabula/views/campaign/new.jade",
+		"/home/bennage/dev/tabula/models/schema.js",
+		"/home/bennage/dev/tabula/views/layout.jade",
+		"/home/bennage/dev/tabula/public/stylesheets/reset.styl",
+		"/home/bennage/dev/tabula/controllers/app.js",
+		"/home/bennage/dev/tabula/controllers/character.js",
+		"/home/bennage/dev/tabula/views/index.jade",
+		"/home/bennage/dev/tabula/views/character/show.jade",
+		"/home/bennage/dev/tabula/auth.js",
+		"/home/bennage/dev/tabula/package.json",
+		"/home/bennage/dev/tabula/boot.js",
 		"/home/bennage/dev/tabula/specs/model_for_a_Post.js",
 		"/home/bennage/dev/tabula/controllers/controller_for_posts.js",
 		"/home/bennage/dev/tabula/public/javascripts/tabula.js",
 		"/home/bennage/dev/tabula/specs/routes.js",
-		"/home/bennage/dev/tabula/controllers/post.js",
 		"/home/bennage/dev/tabula/controllers/main.js",
-		"/home/bennage/dev/tabula/bootstrapper.js",
 		"/home/bennage/dev/tabula/app.js",
 		"/home/bennage/dev/tabula/routes/main.js",
 		"/home/bennage/dev/tabula/routes/post.js",
-		"/home/bennage/dev/tabula/boot.js",
 		"/home/bennage/dev/tabula/mvc.js",
-		"/home/bennage/dev/tabula/package.json",
 		"/home/bennage/dev/tabula/tabula.sublime-project",
-		"/home/bennage/dev/tabula/views/campaign/new.jade",
 		"/home/bennage/dev/tabula/views/character/new.jade",
-		"/home/bennage/dev/tabula/views/index.jade",
-		"/home/bennage/dev/tabula/models/schema.js",
-		"/home/bennage/dev/tabula/views/layout.jade",
 		"/home/bennage/dev/tabula/autotest.rb",
 		"/home/bennage/dev/tabula/specs/the_model_for_a_Post.js",
 		"/home/bennage/dev/tabula/test.txt",
@@ -114,7 +94,6 @@
 		"/home/bennage/dev/tabula/.hgignore",
 		"/home/bennage/dev/tabula/views/login.jade",
 		"/home/bennage/dev/everyauth/package.json",
-		"/home/bennage/dev/tabula/public/stylesheets/style.styl",
 		"/etc/hosts",
 		"/home/bennage/.config/sublime-text-2/Packages/User/coffee-script.sublime-build",
 		"/home/bennage/.config/sublime-text-2/Packages/User/jslint.sublime-build",
@@ -123,7 +102,6 @@
 		"/home/bennage/dev/tabula/test.coffee",
 		"/home/bennage/dev/tabula/PostProvider.coffee",
 		"/home/bennage/.config/sublime-text-2/Packages/CoffeeScript/README.markdown",
-		"/home/bennage/dev/tabula/public/stylesheets/reset.styl",
 		"/home/bennage/dev/tabula/public/stylesheets/style.css",
 		"/home/bennage/.config/sublime-text-2/Packages/Go/Go.tmLanguage",
 		"/home/bennage/.config/sublime-text-2/Packages/Jade/jade-tmbundle/README.md",
@@ -158,98 +136,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"assert.eql",
-			"config",
-			"Config",
-			"config",
-			"Config",
-			"config",
-			"Config",
-			"config",
-			"Config",
-			"config",
-			"Config",
-			"config",
-			"Config",
-			"config",
-			"Config",
-			"config",
-			"Config",
-			"config",
-			"Config",
-			"config",
-			"Config",
-			"config",
-			"assert",
-			"eql",
-			"function()",
-			"User",
-			"post",
-			"Post",
-			"post",
-			"Post",
-			"post",
-			"Post",
-			"post",
-			"campaign",
-			"city",
-			"City",
-			"city",
-			"City",
-			"city",
-			"City",
-			"city",
-			"City",
-			"city",
-			"user",
-			"doc",
-			"docs",
-			"x()",
-			"x",
-			"render ",
-			"assert.equal",
-			"ouput",
-			"test.",
-			"test",
-			"test.expect(2);",
-			"function(test)",
-			"] = ",
-			"};",
-			"exports[",
-			"Sir Rodney",
-			"\"",
-			"__dirname",
-			"everyauth",
-			"auth",
-			"db",
-			"var Post = mongoose.model('Post');\n\napp.post('/post/new', function(req, res){\n    var post = new Post();\n    post.parse(req.body.post);\n\n    post.save(function(e){\n      console.dir(e);\n    });\n\n    res.json(post);\n});\n\napp.post('/post/clear', function(req, res){\n  Post.collection.remove({});\n});\n\napp.get('/stream', function(req, res){\n  Post.find({}, function(error,docs){ \n	  res.json(docs.reverse()); \n	});\n});",
-			"body",
+			"arr",
+			"msgs",
+			"character",
+			"route",
+			"action",
+			"fn",
+			"campaignId",
 			"character",
 			"Character",
 			"character",
 			"Character",
-			"User",
-			"Person",
-			"Schema.",
-			"users",
-			"PostProvider",
-			"posts",
-			"users",
-			"post_collection",
-			"users_collection",
-			"posts_collection",
-			"PostProvider",
-			"mongodb://",
-			"everyauth",
-			"a",
-			"res",
-			"}",
-			";",
-			":",
-			";",
-			"blog",
-			"article",
-			"articles"
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -274,119 +288,8 @@
 	"groups":
 	[
 		{
-			"selected": 3,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/home/bennage/dev/tabula/controllers/app.js",
-					"settings":
-					{
-						"buffer_size": 770,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								79,
-								79
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0,
-						"translation.y": 0,
-						"zoom_level": 1
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/bennage/dev/tabula/bootstrapper.js",
-					"settings":
-					{
-						"buffer_size": 6513,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4248,
-								4257
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0,
-						"translation.y": 0,
-						"zoom_level": 1
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/bennage/dev/tabula/controllers/post.js",
-					"settings":
-					{
-						"buffer_size": 567,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								201,
-								201
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0,
-						"translation.y": 0,
-						"zoom_level": 1
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/etc/hosts",
-					"settings":
-					{
-						"buffer_size": 341,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								68,
-								68
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0,
-						"translation.y": 0,
-						"zoom_level": 1
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
