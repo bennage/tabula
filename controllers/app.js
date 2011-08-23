@@ -1,32 +1,34 @@
-var mongoose = require('mongoose');
-var User = mongoose.model('User');
+var helper = require('../helper');
 
 module.exports = {
     
-    index: function(req, res){
-      
-      var locals = {};
-      var render = function() {
-          res.render('index.jade', { 
-            locals: locals
-          });
-        };
+    index: [
+      helper.context,
+      function(req, res){
+        
+        var locals = {};
+        var context = req.context;
 
-      var auth = req.session.auth;  
-      if (auth && auth.loggedIn) { 
-        var id = auth.facebook.user.id;
+        if(context && context.user) {
+          locals = {
+            campaigns: context.user.campaigns,
+            characters: context.user.characters,
+            campaign: context.campaign,
+            character: context.character
+          };
+        }
 
-        User.findOne({ facebookId: id}, function(err, user) {
-          if(user) {
-            req.session.user = user;
-            locals.campaigns = user.campaigns;
-            locals.characters = user.characters;
-          }
-          render();
-
+        res.render('index.jade', { 
+          locals: locals
         });
-      } else {
-        render();    
       }
+    ],
+
+    'get /hello': [
+    require('../helper').context,
+    function(req,res) {
+      res.send(507);
+      res.end();
     }
+    ]
 };

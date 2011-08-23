@@ -103,7 +103,8 @@ function bootController(app, file) {
     var fn = actions[action];
     switch(action) {
       case 'index':
-        app.get(prefix, fn);
+        // app.get(prefix, fn);
+        interpretAction(app, 'get', prefix, fn);
         break;
       case 'show':
         app.get(prefix + '/:id.:format?', fn);
@@ -143,7 +144,7 @@ function bootController(app, file) {
 }
 
 function interpretAction(app, verb, route, functions) {
-  console.log('custom ' + verb + ': ' + route);
+  console.log('    registering ' + verb + ': ' + route);
 
   // ensure that we have an array of functions 
   // (to allow for middleware)
