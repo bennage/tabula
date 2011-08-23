@@ -6,14 +6,17 @@ var types = {
   say: function() {},
   think: function() {},
   move: function() {},
+  ooc: function() {},
+  minor: function() {},
+  standard: function() {}
 };
 
 var Post = new Schema({
     body: String,
-    type: {type:String},
+    type: {type: String, index: true },
     when: Date,
     characterId: ObjectId,
-    character: String,
+    characterName: {type: String, index: true },
     authorId: ObjectId,
     campaignId: ObjectId
 });

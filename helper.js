@@ -2,6 +2,19 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
 module.exports = {
+    
+    restrict: function(req, res, next) {
+        var auth = req.session.auth;  
+        if (auth && auth.loggedIn) {
+            next();
+        } else {
+            //todo: handle json
+            req.flash('error','Access denied');
+            req.session.error = 'Access denied!';
+            res.redirect('login');
+        }
+    },
+
     context: function(req,res,next) {
 
         var session,

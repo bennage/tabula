@@ -122,17 +122,16 @@ function bootController(app, file) {
     var fn = actions[action];
     switch(action) {
       case 'index':
-        // app.get(prefix, fn);
         interpretAction(app, 'get', prefix, fn);
         break;
       case 'show':
-        app.get(prefix + '/:id.:format?', fn);
+        interpretAction(app, 'get', prefix + '/:id.:format?', fn);
         break;
       case 'add':
-        app.get(prefix + '/add', fn);
+        interpretAction(app, 'get', prefix + '/add', fn);
         break;
       case 'create':
-        app.post(prefix + '/add', fn);
+        interpretAction(app, 'post', prefix + '/add', fn);
         break;
       case 'edit':
         app.get(prefix + '/:id/edit', fn);

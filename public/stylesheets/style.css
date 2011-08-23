@@ -207,7 +207,8 @@ a {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   height: 400px;
-  background-color: #808080;
+  background-color: #dcdcdc;
+  padding: 8px;
 }
 #board {
   float: left;
@@ -220,4 +221,50 @@ a {
 }
 h1 {
   color: #600;
+}
+#chat {
+  width: 432px;
+  border: 1px solid #dcdcdc;
+  margin: 4px;
+  display: table;
+  box-sizing: border-box;
+}
+#chat textarea {
+  height: 100%;
+  width: 100%;
+  margin-right: 12px;
+  box-sizing: border-box;
+}
+#chat .input {
+  display: table-cell;
+  width: 360px;
+}
+#chat .butttons {
+  display: table-cell;
+}
+.post {
+  width: 432px;
+  border: 1px solid #dcdcdc;
+  margin: 4px;
+  display: table;
+  box-sizing: border-box;
+}
+.post .meta {
+  display: table-cell;
+  width: 96px;
+  background-color: #dcdcdc;
+  padding: 6px;
+  box-sizing: border-box;
+}
+.post .meta a {
+  text-decoration: none;
+}
+.post .body {
+  display: table-cell;
+  padding: 6px;
+  box-sizing: border-box;
+}
+.post .when {
+  font-size: 80%;
+  opacity: 0.4;
 }

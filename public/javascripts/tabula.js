@@ -10,7 +10,7 @@
 			$.ajax({
 				data: { post: ta.val() },
 				contentType: 'application/x-www-form-urlencoded',
-				url: '/posts/create',
+				url: '/posts/add',
 				type: 'post',
 				success: renderStream
 			});			
@@ -107,6 +107,16 @@ function roll2(dice)
 		stream = (typeof stream.length === 'undefined') ? [stream] : stream;
 		$('#post-template').template('post-template');
 		$.tmpl('post-template', stream ).prependTo( "#stream" );
+
+		$('.when').each(function(){
+			var d = new Date(this.innerText);
+			this.innerText = friendlyDate(d);
+		});
+
+	}
+
+	function friendlyDate(date) {
+		return '1 minute ago';
 	}
 	
 	$(document).ready(function() {
@@ -115,6 +125,7 @@ function roll2(dice)
 			var action = $(this).data('action');
 			if(actions[action]) { actions[action](); }
 		});
+
 
 		getStream();
 	});

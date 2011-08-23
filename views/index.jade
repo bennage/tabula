@@ -1,9 +1,12 @@
 script(src='/javascripts/tabula.js')
 
 script#post-template(type='text/x-jquery-tmpl')
-	.post
-		.type ${type}
-		.when ${when}
+	.post(class='${type}')
+		.meta
+			.character 
+				a(href='/characters/${characterId}') ${characterName}
+			.type ${type}
+			.when ${when}
 		.body ${body}
 	
 h1 tabula
@@ -13,7 +16,7 @@ h1 tabula
 		h2 Sign In
 		a(href='/auth/facebook') Connect with Facebook
 	- else
-		p= user.name
+		p.username= user.name
 			a(href='/logout') Sign Out
 		.create
 			p
@@ -33,15 +36,21 @@ h1 tabula
 
 #context
 	-if(currentCharacter)
-		a(href='/characters/' + currentCharacter.id)=currentCharacter.name
+		.character
+			a(href='/characters/' + currentCharacter.id)=currentCharacter.name
 	-if(currentCampaign)
-		a(href='/campaigns/' + currentCampaign.id)= currentCampaign.name		
+		.campaign
+			a(href='/campaigns/' + currentCampaign.id)= currentCampaign.name		
 #board
+	-if(currentCampaign)
+		#chat
+			.input
+				textarea(id='post')
+			.buttons
+				button(data-action='post') post
+				button(data-action='clear') clear		
+				button(data-action='roll') roll
 
-	#chat
-		textarea(id='post')
-		button(data-action='post') post
-		button(data-action='clear') clear		
-		button(data-action='roll') roll
-
-	#stream
+		#stream
+	-else
+		p join a campaign
