@@ -1,32 +1,44 @@
 @import 'normalize'
 
+div, header, section
+	box-sizing border-box 
+
 body
-	padding 50px
 	font 14px 'Lucida Grande', Helvetica, Arial, sans-serif
-a
-	color #00B7FF
+
+header
+	display table
+	width 100%
+	background-color hsl(0,40%,70%)
+	padding 12px
+
+header h1
+	display table-cell
+	width 80%
+	margin 0
+
+header #account
+	display table-cell
+	width 20%
+
+section 
+	display table-cell
 
 #context
-	float left
-	width 200px
+	display table-cell
+	width 240px
 	border-right 1 dotted gray
-	-webkit-box-sizing border-box /* Safari/Chrome, other WebKit */
-	-moz-box-sizing border-box    /* Firefox, other Gecko */
-	box-sizing border-box         /* Opera/IE 8+ */
-	height 400px
+	height 100%
 	background-color #dcdcdc
 	padding 8px
 
 #board
-	float left
+	display table-cell
 
 #messages .error
 	color red
 
 .create
 	display none
-
-h1
-	color #660000
 
 @import 'post'

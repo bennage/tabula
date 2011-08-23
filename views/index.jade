@@ -9,50 +9,52 @@ script#post-template(type='text/x-jquery-tmpl')
 			.when ${when}
 		.body ${body}
 	
-h1 tabula
+header	
+	h1 tabula
 
-#account
-	- if (!user)
-		h2 Sign In
-		a(href='/auth/facebook') Connect with Facebook
-	- else
-		p.username= user.name
-			a(href='/logout') Sign Out
-		.create
-			p
-				a(href='/campaigns/add') Create Campaign
-			p
-				a(href='/characters/add') Create Character
-			- if (user.characters)
-				ul.characters
-					- each character in user.characters
-						li
-							a(href='/characters/' + character.id)= character.name
-			- if (user.campaigns)
-				ul.campaigns
-					- each campaign in user.campaigns
-						li
-							a(href='/campaigns/' + campaign.id)= campaign.name
+	#account
+		- if (!user)
+			div Sign In
+			a(href='/auth/facebook') Connect with Facebook
+		- else
+			p.username= user.name
+				a(href='/logout') Sign Out
+			.create
+				p
+					a(href='/campaigns/add') Create Campaign
+				p
+					a(href='/characters/add') Create Character
+				- if (user.characters)
+					ul.characters
+						- each character in user.characters
+							li
+								a(href='/characters/' + character.id)= character.name
+				- if (user.campaigns)
+					ul.campaigns
+						- each campaign in user.campaigns
+							li
+								a(href='/campaigns/' + campaign.id)= campaign.name
 
-#context
-	-if(currentCharacter)
-		.character
-			a(href='/characters/' + currentCharacter.id)=currentCharacter.name
-	-if(currentCampaign)
-		.campaign
-			a(href='/campaigns/' + currentCampaign.id)= currentCampaign.name		
-#board
-	-if(currentCampaign)
-		#commands
-			button(data-action='toggleOoc') toggle ooc
-		#chat
-			.input
-				textarea(id='post')
-			.buttons
-				button(data-action='post') post
-				button(data-action='clear') clear		
-				button(data-action='roll') roll
+section
+	#context
+		-if(currentCharacter)
+			.character
+				a(href='/characters/' + currentCharacter.id)=currentCharacter.name
+		-if(currentCampaign)
+			.campaign
+				a(href='/campaigns/' + currentCampaign.id)= currentCampaign.name		
+	#board
+		-if(currentCampaign)
+			#commands
+				button(data-action='toggleOoc') toggle ooc
+			#chat
+				.input
+					textarea(id='post')
+				.buttons
+					button(data-action='post') post
+					button(data-action='clear') clear		
+					button(data-action='roll') roll
 
-		#stream
-	-else
-		p join a campaign
+			#stream
+		-else
+			p join a campaign

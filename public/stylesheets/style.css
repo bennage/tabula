@@ -192,26 +192,42 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+div,
+header,
+section {
+  box-sizing: border-box;
+}
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-a {
-  color: #00b7ff;
+header {
+  display: table;
+  width: 100%;
+  background-color: #d19494;
+  padding: 12px;
+}
+header h1 {
+  display: table-cell;
+  width: 80%;
+  margin: 0;
+}
+header #account {
+  display: table-cell;
+  width: 20%;
+}
+section {
+  display: table-cell;
 }
 #context {
-  float: left;
-  width: 200px;
+  display: table-cell;
+  width: 240px;
   border-right: 1 dotted #808080;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 400px;
+  height: 100%;
   background-color: #dcdcdc;
   padding: 8px;
 }
 #board {
-  float: left;
+  display: table-cell;
 }
 #messages .error {
   color: #f00;
@@ -219,15 +235,11 @@ a {
 .create {
   display: none;
 }
-h1 {
-  color: #600;
-}
 #chat {
   width: 432px;
   border: 1px solid #dcdcdc;
   margin: 4px;
   display: table;
-  box-sizing: border-box;
 }
 #chat textarea {
   height: 100%;
@@ -247,14 +259,12 @@ h1 {
   border: 1px solid #dcdcdc;
   margin: 4px;
   display: table;
-  box-sizing: border-box;
 }
 .post .meta {
   display: table-cell;
   width: 96px;
   background-color: #dcdcdc;
   padding: 6px;
-  box-sizing: border-box;
 }
 .post .meta a {
   text-decoration: none;
@@ -262,7 +272,6 @@ h1 {
 .post .body {
   display: table-cell;
   padding: 6px;
-  box-sizing: border-box;
 }
 .post .when {
   font-size: 80%;
