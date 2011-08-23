@@ -35,9 +35,10 @@ h1 tabula
 							a(href='/campaigns/' + campaign.id)= campaign.name
 
 #context
-	div character
-	div map
-
+	-if(currentCharacter)
+		a(href='/characters/' + currentCharacter.id)=currentCharacter.name
+	-if(currentCampaign)
+		a(href='/campaigns/' + currentCampaign.id)= currentCampaign.name		
 #board
 
 	#chat
@@ -45,6 +46,5 @@ h1 tabula
 		button(data-action='post') post
 		button(data-action='clear') clear		
 		button(data-action='roll') roll
-
 
 	#stream

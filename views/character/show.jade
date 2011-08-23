@@ -1,6 +1,6 @@
-h1= character.name
+h1= locals.character.name
 
 .profile
-	img(src=character.profileUrl)
+	img(src=locals.character.profileUrl)
 
-iframe(src='http://iplay4e.appspot.com/view?xsl=jPint&key=' + character.iplay4eKey, frameborder='no', style='width:400px;border:none; height:800px; padding:0;')
+iframe(src='http://iplay4e.appspot.com/view?xsl=jPint&key=' + locals.character.iplay4eKey, frameborder='no', style='width:400px;border:none; height:800px; padding:0;')

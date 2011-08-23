@@ -2,6 +2,7 @@ var fs = require('fs');
 var express = require('express');
 var mongoose = require('mongoose');
 var models = require('./models/schema');
+var helper = require('./helper');
 
 var connectionString = process.env['MONGOHQ_URL'] ||'mongodb://localhost/tabula';
 mongoose.connect(connectionString);
@@ -54,6 +55,18 @@ function bootApplication(app) {
   app.dynamicHelpers({
     request: function(req){
       return req;
+    },
+
+    currentCharacter: function(req) {
+      return (req.context && req.context.character)
+        ? req.context.character
+        : null;
+    },
+
+    currentCampaign: function(req) {
+      return (req.context && req.context.campaign)
+        ? req.context.campaign
+        : null;
     },
 
     hasMessages: function(req){
