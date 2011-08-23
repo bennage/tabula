@@ -215,3 +215,9 @@ a {
 #messages .error {
   color: #f00;
 }
+.create {
+  display: none;
+}
+h1 {
+  color: #600;
+}

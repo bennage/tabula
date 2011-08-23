@@ -57,6 +57,12 @@ function bootApplication(app) {
       return req;
     },
 
+    user: function(req) {
+      return (req.context && req.context.user)
+        ? req.context.user
+        : null;
+    },
+
     currentCharacter: function(req) {
       return (req.context && req.context.character)
         ? req.context.character

@@ -4,33 +4,30 @@ script#post-template(type='text/x-jquery-tmpl')
 	.post
 		.type ${type}
 		.when ${when}
-		.body ${body}	
+		.body ${body}
 	
 h1 tabula
 
 #account
-	- if (!everyauth.loggedIn)
+	- if (!user)
 		h2 Sign In
 		a(href='/auth/facebook') Connect with Facebook
 	- else
-		- if (everyauth.facebook)
-			-var user = everyauth.facebook.user; 
-
-			p= user.first_name + ' ' + user.last_name
-				a(href='/logout') Sign Out
-			.create
-				p
-					a(href='/campaigns/add') Create Campaign
-				p
-					a(href='/characters/add') Create Character
-			- if (characters)
+		p= user.name
+			a(href='/logout') Sign Out
+		.create
+			p
+				a(href='/campaigns/add') Create Campaign
+			p
+				a(href='/characters/add') Create Character
+			- if (user.characters)
 				ul.characters
-					- each character in characters
+					- each character in user.characters
 						li
 							a(href='/characters/' + character.id)= character.name
-			- if (campaigns)
+			- if (user.campaigns)
 				ul.campaigns
-					- each campaign in campaigns
+					- each campaign in user.campaigns
 						li
 							a(href='/campaigns/' + campaign.id)= campaign.name
 
