@@ -1,4 +1,5 @@
 var mongoose = require('mongoose'),
+    dice = require('./dice'),
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
 
@@ -8,7 +9,8 @@ var types = {
   move: function() {},
   ooc: function() {},
   minor: function() {},
-  standard: function() {}
+  standard: function() {},
+  roll: function(post) { return dice.convertRolls(post); }
 };
 
 var Post = new Schema({
@@ -21,11 +23,12 @@ var Post = new Schema({
     campaignId: ObjectId
 });
 
+
 Post.method({
   parse: function (data) {
     var re = /\b([a-z]+)\b/i;
     var m = re.exec(data);
-    var type = m[0];
+    var type = m ? m[0] : 'narrate';
     
     if(typeof types[type] !== 'undefined') {
       data = data.replace(re,'');
