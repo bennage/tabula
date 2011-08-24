@@ -10,4 +10,9 @@
     , "everyauth": ">= 0.2.18"
     , "mongoose": ">= 1.8.3"
   }
+  , "devDependencies": {
+      "expresso": "0.8.x"
+    , "horaa": "0.1.x" 
+  }
+  , "engine": "node 0.4.7"
 }
