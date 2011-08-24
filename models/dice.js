@@ -1,14 +1,34 @@
 module.exports = {
+	// take some content, identify roll expression and evaluate them
 	convertRolls: function(exp) {
 		var re = /(\d*d\d+(\s*[+-]\s*(\d*d\d+|\d+))*)/ig;
 
-		return exp.replace(re, function(m) {
-			return '[[' + roll2(m) + ', ' + m + ']]';
+		var results = [];
+		var dice = [];
+
+		var full = exp.replace(re, function(m) {
+			var result = roll(m);
+			results.push(result);
+			return '[[' + results + ', ' + m + ']]';
 		});
+
+		var matches = exp.match(re);
+		
+		for(var i = 0; i < matches.length; i++) {
+			dice.push(matches[i].replace(/\s/g,''));
+		}	
+
+		return {
+			dice: dice,
+			results: results,
+			toString : function() {
+				return full;
+			}
+		};
 	}
 };
 
-function roll2(dice)
+function roll(dice)
 {
 	dice = dice.replace(/- */,'+ -');
 	dice = dice.replace(/D/,'d');

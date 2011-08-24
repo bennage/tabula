@@ -1,7 +1,14 @@
 var assert = require('assert');
+var mongoose = require('mongoose');
 var Post = require('../models/Post');
 
 module.exports = {
+    
+    teardown: function(done){
+       mongoose.disconnect();
+       done();
+    },
+
     'Post can process "say" actions': function(){
         var post = new Post();
         post.parse('say What did you say?')
