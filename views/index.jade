@@ -8,7 +8,13 @@ script#post-template(type='text/x-jquery-tmpl')
 			.type ${type}
 			.when ${when}
 		.body ${body}
-	
+
+script#pagination-template(type='text/x-jquery-tmpl')
+	.current page ${page} of ${total}
+	a.prev(href='#') prev
+	a.next(href='#') next
+	.count ${count} post(s)
+				
 header	
 	h1 tabula
 
@@ -54,7 +60,7 @@ section
 					button(data-action='post') post
 					button(data-action='clear') clear		
 					button(data-action='roll') roll
-
+			#pagination
 			#stream
 		-else
 			p join a campaign

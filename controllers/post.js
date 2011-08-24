@@ -3,15 +3,37 @@ var User = mongoose.model('User');
 var Post = mongoose.model('Post');
 var helper = require('../helper');
 
+var pageSize = 5;
+
 module.exports = {
 
     index: [
       helper.restrict,
       helper.context,
       function(req, res){
-        Post.find({campaignId:req.context.campaign.id}, function(error,docs){ 
-          res.json(docs.reverse()); 
-        });
+        
+        var id = req.context.campaign.id;
+        var page = req.params.page || 1;
+        var conditions = {campaignId:id};
+        var skip = (page -1) * pageSize;
+        
+        Post.count(conditions, function(error, count) {
+          Post.find(conditions)
+            .desc('when')
+            .skip(skip)
+            .limit(pageSize)
+            .exec(function(error,docs){ 
+                if(error) {
+                  console.dir(error);
+                }
+                res.json({
+                  count: count,
+                  pageSize: pageSize,
+                  page: page,
+                  results: docs
+                }); 
+              });
+        })
       }
     ],
 

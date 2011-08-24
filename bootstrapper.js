@@ -122,7 +122,7 @@ function bootController(app, file) {
     var fn = actions[action];
     switch(action) {
       case 'index':
-        interpretAction(app, 'get', prefix, fn);
+        interpretAction(app, 'get', prefix + '/:page?', fn);
         break;
       case 'show':
         interpretAction(app, 'get', prefix + '/:id.:format?', fn);

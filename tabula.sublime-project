@@ -3,6 +3,10 @@
 	{
 		"selected_items":
 		[
+			[
+				"cam",
+				"campaign"
+			]
 		]
 	},
 	"buffers":
@@ -11,15 +15,15 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 107,
+		"height": 392,
 		"selected_items":
 		[
 			[
-				"ind",
+				"in",
 				"Indentation: Convert to Spaces"
 			],
 			[
-				"in",
+				"ind",
 				"Indentation: Convert to Spaces"
 			],
 			[
@@ -31,7 +35,7 @@
 				"Indentation: Convert to Spaces"
 			]
 		],
-		"width": 392
+		"width": 467
 	},
 	"console":
 	{
@@ -47,25 +51,31 @@
 	},
 	"file_history":
 	[
-		"/home/bennage/dev/tabula/public/stylesheets/style.styl",
+		"/home/bennage/dev/sandbox/test.js",
+		"/home/bennage/dev/sandbox/mod.js",
+		"/home/bennage/dev/tabula/views/layout.jade",
+		"/home/bennage/dev/tabula/models/Post.js",
+		"/home/bennage/dev/tabula/public/javascripts/tabula.js",
 		"/home/bennage/dev/tabula/bootstrapper.js",
 		"/home/bennage/dev/tabula/controllers/post.js",
+		"/home/bennage/dev/tabula/views/character/show.jade",
+		"/home/bennage/dev/tabula/controllers/app.js",
+		"/home/bennage/dev/tabula/public/stylesheets/style.styl",
+		"/home/bennage/dev/tabula/public/stylesheets/post.styl",
+		"/home/bennage/dev/tabula/public/stylesheets/normalize.styl",
+		"/home/bennage/dev/tabula/views/index.jade",
+		"/home/bennage/dev/tabula/helper.js",
 		"/home/bennage/dev/tabula/controllers/campaign.js",
 		"/home/bennage/dev/tabula/views/campaign/show.jade",
 		"/home/bennage/dev/tabula/views/campaign/new.jade",
 		"/home/bennage/dev/tabula/models/schema.js",
-		"/home/bennage/dev/tabula/views/layout.jade",
 		"/home/bennage/dev/tabula/public/stylesheets/reset.styl",
-		"/home/bennage/dev/tabula/controllers/app.js",
 		"/home/bennage/dev/tabula/controllers/character.js",
-		"/home/bennage/dev/tabula/views/index.jade",
-		"/home/bennage/dev/tabula/views/character/show.jade",
 		"/home/bennage/dev/tabula/auth.js",
 		"/home/bennage/dev/tabula/package.json",
 		"/home/bennage/dev/tabula/boot.js",
 		"/home/bennage/dev/tabula/specs/model_for_a_Post.js",
 		"/home/bennage/dev/tabula/controllers/controller_for_posts.js",
-		"/home/bennage/dev/tabula/public/javascripts/tabula.js",
 		"/home/bennage/dev/tabula/specs/routes.js",
 		"/home/bennage/dev/tabula/controllers/main.js",
 		"/home/bennage/dev/tabula/app.js",
@@ -78,7 +88,6 @@
 		"/home/bennage/dev/tabula/specs/the_model_for_a_Post.js",
 		"/home/bennage/dev/tabula/test.txt",
 		"/home/bennage/dev/tabula/autotest.watchr",
-		"/home/bennage/dev/tabula/models/Post.js",
 		"/home/bennage/dev/tabula/specs/tests.js",
 		"/home/bennage/dev/tabula/.gitignore",
 		"/home/bennage/dev/tabula/run_tests",
@@ -136,6 +145,19 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"div",
+			"4px",
+			"character",
+			"campaign",
+			"character",
+			"context.character",
+			"context.campaign",
+			"character:",
+			"character",
+			" =",
+			"req.",
+			"locals.",
+			"campaign",
 			"arr",
 			"msgs",
 			"character",
@@ -250,20 +272,7 @@
 			"character",
 			"Character",
 			"character",
-			"Character",
-			"character",
-			"Character",
-			"character",
-			"Character",
-			"character",
-			"Character",
-			"character",
-			"Character",
-			"character",
-			"Character",
-			"character",
-			"Character",
-			"character"
+			"Character"
 		],
 		"highlight": true,
 		"in_selection": false,

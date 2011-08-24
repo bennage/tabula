@@ -108,17 +108,55 @@ function roll2(dice)
 	return out;
 }
 
-	function getStream() {
+	function getStream(page) {
+		page = page || 1;
 		$.ajax({
-			url: '/posts',
-			success: renderStream
+			url: '/posts/' + page,
+			success: renderPage
 		});
+	}
+
+	function renderPage(res) {
+		var area = $('#pagination');
+		area.empty();
+		$('#stream').empty();
+
+		res.total = Math.ceil(res.count / res.pageSize);
+		$('#pagination-template').template('pagination-template');
+		$.tmpl('pagination-template',res).prependTo('#pagination');
+
+		renderStream(res.results);
+		updateNaviation(Number(res.page), Number(res.total));
+	}
+
+	function updateNaviation(current, total) {
+		
+		var next = $('#pagination .next');
+		var prev = $('#pagination .prev');
+
+		if(current > 1) {
+			prev.click(function() {
+				getStream(current - 1);
+			});
+			prev.removeAttr('disabled');
+		} else {
+			prev.attr('disabled','');
+		}
+
+		if(current < total && total > 1) {
+			next.click(function () {
+				getStream(current + 1);
+			})
+			next.removeAttr('disabled');
+		} else {
+			next.attr('disabled','');
+		}
 	}
 
 	function renderStream(stream) {
 		stream = (typeof stream.length === 'undefined') ? [stream] : stream;
 		$('#post-template').template('post-template');
-		$.tmpl('post-template', stream ).prependTo( "#stream" );
+		$.tmpl('post-template', stream ).prependTo( '#stream' );
 
 		$('.when').each(function(){
 			var d = new Date(this.innerText);
