@@ -7,6 +7,8 @@ alt_accent = rgb(174,204,182)
 accent = rgb(128,153,148)
 header_text = hsl(0,100%,100%)
 
+pad = 12px
+
 div, header, footer, section
 	box-sizing border-box 
 
@@ -26,7 +28,7 @@ header
 	width 100%
 	background-color header
 	background-image url('/images/dirt.png')
-	padding 12px
+	padding pad
 
 header h1
 	display table-cell
@@ -42,7 +44,7 @@ header #account
 footer
 	background-color header
 	background-image url('/images/dirt.png')
-	padding 12px
+	padding pad
 	color white
 
 #main
@@ -70,12 +72,13 @@ section[role=game]
 	min-height 400px
 	border-right 1 dotted gray
 	background-color alt_accent
-	padding 8px
+	padding pad
 
 #board
 	-webkit-box-flex 1
 	-moz-box-flex 1
 	box-flex 1
+	padding pad
 
 #messages .error
 	color red

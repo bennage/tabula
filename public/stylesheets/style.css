@@ -256,12 +256,13 @@ section[role=game] {
   min-height: 400px;
   border-right: 1 dotted #808080;
   background-color: #aeccb6;
-  padding: 8px;
+  padding: 12px;
 }
 #board {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   box-flex: 1;
+  padding: 12px;
 }
 #messages .error {
   color: #f00;
@@ -269,8 +270,12 @@ section[role=game] {
 .create {
   display: none;
 }
+#commands {
+  display: none;
+}
 #chat {
   width: 432px;
+  height: 96px;
   border: 1px solid #dcdcdc;
   margin: 4px;
   display: table;
