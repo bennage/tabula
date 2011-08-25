@@ -20,28 +20,26 @@ header
 
 	#account
 		- if (!user)
-			div Sign In
-			a(href='/auth/facebook') Connect with Facebook
+			a(href='/auth/facebook') Sign in with Facebook
 		- else
-			p.username= user.name
+			.username= user.name
 				a(href='/logout') Sign Out
-			.create
-				p
+			ul.create
+				li
 					a(href='/campaigns/add') Create Campaign
-				p
+				li
 					a(href='/characters/add') Create Character
-				- if (user.characters)
-					ul.characters
-						- each character in user.characters
-							li
-								a(href='/characters/' + character.id)= character.name
-				- if (user.campaigns)
-					ul.campaigns
-						- each campaign in user.campaigns
-							li
-								a(href='/campaigns/' + campaign.id)= campaign.name
-
-section
+			- if (user.characters)
+				ul.characters
+					- each character in user.characters
+						li
+							a(href='/characters/' + character.id)= character.name
+			- if (user.campaigns)
+				ul.campaigns
+					- each campaign in user.campaigns
+						li
+							a(href='/campaigns/' + campaign.id)= campaign.name
+section(role='game')
 	#context
 		-if(currentCharacter)
 			.character
@@ -64,3 +62,5 @@ section
 			#stream
 		-else
 			p join a campaign
+
+footer Christopher Bennage
