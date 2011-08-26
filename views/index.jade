@@ -15,30 +15,6 @@ script#pagination-template(type='text/x-jquery-tmpl')
 	a.next(href='#') next
 	.count ${count} post(s)
 				
-header	
-	h1 tabula
-
-	#account
-		- if (!user)
-			a(href='/auth/facebook') Sign in with Facebook
-		- else
-			.username= user.name
-				a(href='/logout') Sign Out
-			ul.create
-				li
-					a(href='/campaigns/add') Create Campaign
-				li
-					a(href='/characters/add') Create Character
-			- if (user.characters)
-				ul.characters
-					- each character in user.characters
-						li
-							a(href='/characters/' + character.id)= character.name
-			- if (user.campaigns)
-				ul.campaigns
-					- each campaign in user.campaigns
-						li
-							a(href='/campaigns/' + campaign.id)= campaign.name
 section(role='game')
 	#context
 		-if(currentCharacter)
@@ -63,5 +39,3 @@ section(role='game')
 		-else
 			p
 				a(href='/campaigns/join/') join a campaign
-
-footer Christopher Bennage
