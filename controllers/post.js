@@ -12,6 +12,17 @@ module.exports = {
       helper.context,
       function(req, res){
         
+        if(!req.context.campaign) {
+          
+          res.json({
+                  count: 0,
+                  pageSize: 0,
+                  page: 0,
+                  results: []
+                }); 
+          return;
+        }
+
         var id = req.context.campaign.id;
         var page = req.params.page || 1;
         var conditions = {campaignId:id};

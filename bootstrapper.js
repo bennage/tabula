@@ -41,6 +41,36 @@ function bootApplication(app) {
 
   app.redirect('login','/');
 
+  app.get('/login/:user', function(req,res){
+    
+    var id = req.params.user;
+    var User = mongoose.model('User');
+
+    User.findOne({ facebookId: id}, function(err, result) {
+        var user;
+        if(!result) {
+          user = new User();
+          user.facebookId = id;
+          user.name = id;
+          user.save();
+        } else {
+          user = result.doc;
+        }
+
+        var session = req.session;
+        session.auth = session.auth || {};  
+        session.auth.loggedIn = true;            
+        session.auth.facebook ={
+            user: {
+              id: id
+            }
+          };
+
+        res.redirect('/');
+    });
+
+  });
+
   // // Example 500 page
   // app.use(function(err, req, res, next){
   //   res.render('500');
@@ -76,7 +106,7 @@ function bootApplication(app) {
     },
 
     hasMessages: function(req){
-      if (!req.session) return false;
+      if (!req.session) { return false; }
       return Object.keys(req.session.flash || {}).length > 0;
     },
 
@@ -97,7 +127,7 @@ function bootApplication(app) {
 
 function bootControllers(app) {
   fs.readdir(__dirname + '/controllers', function(err, files){
-    if (err) throw err;
+    if (err) { throw err; }
     files.forEach(function(file){
       console.log('loading controller: ' + file);
       bootController(app, file);
@@ -114,7 +144,7 @@ function bootController(app, file) {
     , prefix = '/' + plural; 
 
   // Special case for "app"
-  if (name == 'app') prefix = '/';
+  if (name === 'app') { prefix = '/'; }
 
   Object.keys(actions).map(function(action){
     //todo: examine the 'magic' here
@@ -191,7 +221,7 @@ function controllerAction(name, plural, action, fn) {
       }
 
       // Format support
-      if (action == 'show' && format) {
+      if (action === 'show' && format) {
         if (format === 'json') {
           return res.send(obj);
         } else {
@@ -203,7 +233,7 @@ function controllerAction(name, plural, action, fn) {
       res.render = render;
       options = options || {};
       // Expose obj as the "users" or "user" local
-      if (action == 'index') {
+      if (action === 'index') {
         options[plural] = obj;
       } else {
         options[name] = obj;
