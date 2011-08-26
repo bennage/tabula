@@ -1,0 +1,6 @@
+h1 Campaigns
+
+ul
+-each campaign in campaigns
+	li
+		a(href='/campaigns/join/' + campaign.id)= campaign.name

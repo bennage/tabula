@@ -28,15 +28,15 @@ module.exports = {
       });
     },
 
-    show: function(req,res) {
-      Campaign.findById(req.params.id, function(e,campaign) {
-          if(!campaign) {
-            res.render(404);            
-          } else {
-            res.render('campaign/show', { campaign: campaign });
-          }
-      });
-    },
+    'get /campaigns/join' : [
+      helper.restrict,
+      helper.context,
+      function(req,res) {
+        Campaign.find({}, function(error, docs) {
+          res.render('campaign/index', { campaigns: docs } );
+        });
+      }
+    ],
 
     'get /campaigns/join/:id' : [
       helper.restrict,
@@ -51,7 +51,7 @@ module.exports = {
             campaign.save();
 
             User.findById(userId, function(err, user) {
-              if(!user.campaigns.some(function(candidate){ return candidate.id === campaign.id})){
+              if(!user.campaigns.some(function(candidate){ return candidate.id === campaign.id; })){
                 user.campaigns.push( campaign );
                 user.save();
               }
@@ -60,6 +60,16 @@ module.exports = {
           }
         });
       }
-    ]
+    ],
 
-}
+  show: function(req,res) {
+      Campaign.findById(req.params.id, function(e,campaign) {
+          if(!campaign) {
+            res.render(404);            
+          } else {
+            res.render('campaign/show', { campaign: campaign });
+          }
+      });
+    },
+
+};
