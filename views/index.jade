@@ -17,12 +17,17 @@ script#pagination-template(type='text/x-jquery-tmpl')
 				
 section(role='game')
 	#context
-		-if(currentCharacter)
-			.character
+		.campaign
+			-if(currentCampaign)
+				a(href='/campaigns/' + currentCampaign.id)= currentCampaign.name
+			-else
+				a(href='/campaigns/join/') join a campaign
+		.character
+			-if(currentCharacter)
 				a(href='/characters/' + currentCharacter.id)=currentCharacter.name
-		-if(currentCampaign)
-			.campaign
-				a(href='/campaigns/' + currentCampaign.id)= currentCampaign.name		
+			-else
+				a(href='/characters/add') create a character
+		
 	#board
 		-if(currentCampaign)
 			#commands
@@ -38,4 +43,4 @@ section(role='game')
 			#stream
 		-else
 			p
-				a(href='/campaigns/join/') join a campaign
+				

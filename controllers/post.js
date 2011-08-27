@@ -54,6 +54,12 @@ module.exports = {
       function(req, res) {
           var context = req.context;
 
+          if(!(context.campaign && context.character)) {
+            // send not authorized
+            res.send(403);
+            return;
+          }
+
           var post = new Post();
           post.parse(req.body.post);
 
