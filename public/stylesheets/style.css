@@ -276,7 +276,7 @@ section[role=game] {
 #chat {
   width: 432px;
   height: 96px;
-  border: 1px solid #dcdcdc;
+  border: 1px solid #809994;
   margin: 4px;
   display: table;
 }
@@ -295,18 +295,9 @@ section[role=game] {
 }
 .post {
   width: 432px;
-  border: 1px solid #dcdcdc;
+  border: 1px solid #809994;
   margin: 4px;
   display: table;
-}
-.post .meta {
-  display: table-cell;
-  width: 96px;
-  background-color: #dcdcdc;
-  padding: 6px;
-}
-.post .meta a {
-  text-decoration: none;
 }
 .post .body {
   display: table-cell;
@@ -315,6 +306,25 @@ section[role=game] {
 .post .when {
   font-size: 80%;
   opacity: 0.4;
+}
+.post .type {
+  font-size: 90%;
+  font-style: italic;
+  opacity: 0.6;
+}
+.post .profilePic {
+  display: table-cell;
+  width: 96px;
+}
+.post .meta {
+  display: table-cell;
+  width: 96px;
+  background-color: #809994;
+  padding: 6px;
+}
+.post .meta .character a {
+  text-decoration: none;
+  color: #000;
 }
 .post.ooc .meta {
   background-color: #998fa3;

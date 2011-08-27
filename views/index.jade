@@ -6,7 +6,7 @@ script#post-template(type='text/x-jquery-tmpl')
 			.character 
 				a(href='/characters/${characterId}') ${characterName}
 			.type ${type}
-			.when ${when}
+			.when(title='${when}') ${when}
 		.body ${body}
 
 script#pagination-template(type='text/x-jquery-tmpl')

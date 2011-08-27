@@ -4,45 +4,56 @@
 #chat
 	width 432px
 	height 96px
-	border 1px solid #dcdcdc
+	border 1px solid accent
 	margin 4px
 	display table
 
-#chat textarea
-	height 100%
-	width 100%
-	margin-right 12px
-	box-sizing border-box
+	textarea
+		height 100%
+		width 100%
+		margin-right 12px
+		box-sizing border-box
 
-#chat .input
-	display table-cell
-	width 360px
+	.input
+		display table-cell
+		width 360px
 
-#chat .butttons
-	display table-cell
+	.butttons
+		display table-cell
 
 .post
 	width 432px
-	border 1px solid #dcdcdc
+	border 1px solid accent
 	margin 4px
 	display table
 
-.post .meta
-	display table-cell
-	width 96px
-	background-color #dcdcdc
-	padding 6px
+	.body
+		display table-cell
+		padding 6px
 
-.post .meta a
-	text-decoration none
+	.when
+		font-size 80%
+		opacity 0.4
 
-.post .body
-	display table-cell
-	padding 6px
+	.type
+		font-size 90%
+		font-style italic
+		opacity 0.6
 
-.post .when
-	font-size 80%
-	opacity 0.4
+	.profilePic
+		display table-cell
+		width 96px
+		
+
+	.meta
+		display table-cell
+		width 96px
+		background-color accent
+		padding 6px
+
+		.character a
+			text-decoration none
+			color black
 
 .post.ooc .meta
 	background-color hsl(270,10%,60%)

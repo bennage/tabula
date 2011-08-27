@@ -91,27 +91,20 @@
 
 	function renderStream(stream) {
 		stream = (typeof stream.length === 'undefined') ? [stream] : stream;
+		// stream.forEach(function(post){
+		// 	post.howLongAgo = $.prettyDate.format(post.when);
+		// });
 		$('#post-template').template('post-template');
 		$.tmpl('post-template', stream ).prependTo( '#stream' );
-
-		$('.when').each(function(){
-			var d = new Date(this.innerText);
-			this.innerText = friendlyDate(d);
-		});
-
+		$('.when').prettyDate();
 	}
 
-	function friendlyDate(date) {
-		return '1 minute ago';
-	}
-	
 	$(document).ready(function() {
 
 		$('button[data-action]').click(function(){
 			var action = $(this).data('action');
 			if(actions[action]) { actions[action](); }
 		});
-
 
 		getStream();
 	});
