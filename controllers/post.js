@@ -3,7 +3,7 @@ var User = mongoose.model('User');
 var Post = mongoose.model('Post');
 var helper = require('../helper');
 
-var pageSize = 5;
+var pageSize = 10;
 
 module.exports = {
 

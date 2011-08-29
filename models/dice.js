@@ -9,10 +9,10 @@ module.exports = {
 		var full = exp.replace(re, function(m) {
 			var result = roll(m);
 			results.push(result);
-			return '[[' + results + ', ' + m + ']]';
+			return  '{' + result.total + '}';
 		});
 
-		var matches = exp.match(re);
+		var matches = exp.match(re) || [];
 		
 		for(var i = 0; i < matches.length; i++) {
 			dice.push(matches[i].replace(/\s/g,''));
@@ -21,6 +21,7 @@ module.exports = {
 		return {
 			dice: dice,
 			results: results,
+			body: full,
 			toString : function() {
 				return full;
 			}
@@ -64,18 +65,11 @@ function roll(dice)
 		}
 	});
 
-	if (results.length === 0) {
-	  return dice;
-	}
-
 	total = results.reduce(function(prev,current){ return prev + current; });
-	var out = total + ' [';
-	results.forEach(function(result,index){
-		out += result;
-		if(index !== results.length - 1) {
-			out += ' + ';
-		}
-	});
-	out += ']';
-	return out;
+	
+	return {
+		total: total,
+		types: type,
+		outcomes: results
+	};
 }

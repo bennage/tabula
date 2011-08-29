@@ -3,6 +3,19 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
 
+// define schema
+var Post = new Schema({
+    body: String,
+    type: {type: String, index: true },
+    when: Date,
+    rolls: {},
+    characterId: ObjectId,
+    characterName: {type: String, index: true },
+    authorId: ObjectId,
+    campaignId: ObjectId
+});
+
+// shared logic for post instances
 var types = {
   say: function() {},
   think: function() {},
@@ -10,35 +23,42 @@ var types = {
   ooc: function() {},
   minor: function() {},
   standard: function() {},
-  roll: function(post) { return dice.convertRolls(post); }
+  roll: function(post) {
+    var roll = dice.convertRolls(post);
+    return {
+      body: roll.body,
+      rolls: roll.results 
+      };
+    }
 };
 
-var Post = new Schema({
-    body: String,
-    type: {type: String, index: true },
-    when: Date,
-    characterId: ObjectId,
-    characterName: {type: String, index: true },
-    authorId: ObjectId,
-    campaignId: ObjectId
-});
-
-
+// define methods
 Post.method({
-  parse: function (data) {
+  parse: function (incoming) {
     var re = /\b([a-z]+)\b/i;
-    var m = re.exec(data);
+    var m = re.exec(incoming);
     var type = m ? m[0] : 'narrate';
-    
+    var data;
+
     if(typeof types[type] !== 'undefined') {
-      data = data.replace(re,'');
-      data = types[type](data) || data;
+      incoming = incoming.replace(re,'');
+      //todo: make this conversion more clear
+      data = types[type](incoming) || {
+        body: incoming.body || incoming,
+        rolls: incoming.rolls || {}
+      };
     } else {
       type = 'narrate';
+      var roll = dice.convertRolls(incoming);
+      data = {
+        body: roll.body,
+        rolls: roll.results 
+      };
     }
 
     this.type = type;
-    this.body = data.trim();
+    this.body = data.body.trim();
+    this.rolls = data.rolls;
   }
 });
 

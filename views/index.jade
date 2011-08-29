@@ -14,7 +14,18 @@ script#pagination-template(type='text/x-jquery-tmpl')
 	a.prev(href='#') prev
 	a.next(href='#') next
 	.count ${count} post(s)
-				
+
+script#roll-template(type='text/x-jquery-tmpl')
+	.roll
+		.total rolled ${total}
+		{{each types}}
+		{{if $value !== 0}}
+		.outcome d${$value} = ${outcomes[$index]}
+		{{else}}
+		.bonus ${outcomes[$index]}
+		{{/if}}
+		{{/each}}
+
 section(role='game')
 	#context
 		.campaign
@@ -27,6 +38,8 @@ section(role='game')
 				a(href='/characters/' + currentCharacter.id)=currentCharacter.name
 			-else
 				a(href='/characters/add') create a character
+		#roll
+			roll over a post
 		
 	#board
 		-if(currentCampaign)
