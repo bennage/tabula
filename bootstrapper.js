@@ -87,6 +87,10 @@ function bootApplication(app) {
       return req;
     },
 
+    isMaster: function(req){
+      return (req.context && req.context.master);
+    },
+
     user: function(req) {
       return (req.context && req.context.user)
         ? req.context.user

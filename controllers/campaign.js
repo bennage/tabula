@@ -10,25 +10,30 @@ module.exports = {
       res.render('campaign/new.jade', { campaign: new Campaign() });
     },
 
-    create: function(req,res) {
+    create: [
+      helper.restrict,
+      helper.context,
+      function(req,res) {
       var campaign = new Campaign();
       var property;
+      var userId = req.context.user.id;
 
       for(property in req.body.campaign) {
         campaign[property] = req.body.campaign[property];
       }
 
+      campaign.master = userId;
+
       campaign.save(function(e,data){
-        var facebookId = req.session.auth.facebook.user.id;
-        User.findOne({ facebookId: facebookId}, function(err, user) {
+        User.findById(userId, function(err, user) {
           user.campaigns.push( data );
           user.save();
         });
         res.redirect('/campaigns/' + data.id);
       });
-    },
+    }],
 
-    'get /campaigns/join' : [
+    'get /campaigns/join': [
       helper.restrict,
       helper.context,
       function(req,res) {
