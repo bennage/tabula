@@ -32,7 +32,7 @@ module.exports.configure = function (app) {
         });
         return promise;
     })
-    .redirectPath('http://whatsbetween.us:3000');
+    .redirectPath('/');
 
   // mixin view helpers for everyauth
   everyauth.helpExpress(app);
