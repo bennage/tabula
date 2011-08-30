@@ -209,6 +209,9 @@ body {
   height: 100%;
   width: 100%;
 }
+.page {
+  margin: 0 12px;
+}
 header {
   display: table;
   width: 100%;
@@ -216,16 +219,20 @@ header {
   background-image: url("/images/dirt.png");
   padding: 12px;
 }
-header h1 {
-  display: table-cell;
-  color: #fff;
-  text-shadow: #fff 0px 0px 2px, #000 1px 1px 0px;
-  width: 80%;
-  margin: 0;
-}
 header #account {
   display: table-cell;
   width: 20%;
+}
+header h1 {
+  display: table-cell;
+  width: 80%;
+  margin: 0;
+}
+header h1 a,
+header h1 a:visited {
+  text-decoration: none;
+  color: #fff;
+  text-shadow: #fff 0px 0px 2px, #000 1px 1px 0px;
 }
 footer {
   background-color: #665446;

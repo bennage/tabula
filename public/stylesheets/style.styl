@@ -23,6 +23,9 @@ body
 	height 100%
 	width 100%
 
+.page
+	margin 0 12px
+
 header
 	display table
 	width 100%
@@ -30,16 +33,19 @@ header
 	background-image url('/images/dirt.png')
 	padding pad
 
-header h1
-	display table-cell
-	color light_text
-	text-shadow white 0px 0px 2px, black 1px 1px 0px
-	width 80%
-	margin 0
+	#account
+		display table-cell
+		width 20%
 
-header #account
-	display table-cell
-	width 20%
+	h1
+		display table-cell
+		width 80%
+		margin 0
+
+		a, a:visited
+			text-decoration none
+			color light_text
+			text-shadow white 0px 0px 2px, black 1px 1px 0px
 
 footer
 	background-color dark

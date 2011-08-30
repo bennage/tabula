@@ -1,14 +1,15 @@
-h1 character
-// form(enctype='application/x-www-form-urlencoded', method='post')
+.page
+  h1 character
+  // form(enctype='application/x-www-form-urlencoded', method='post')
 
-form(method="post")
-  fieldset
-    legend setup character
-    p
-      label(for="character[name]") name:
-        input(type="text", name="character[name]", value=character.name)
-    p
-      label(for="character[iplay4eKey]") iplay4eKey:
-        input(type="text", name="character[iplay4eKey]", value=character.iplay4eKey)
-  p.buttons
-    input(type="submit", value="Save")
+  form(method="post")
+    fieldset
+      legend setup character
+      p
+        label(for="character[name]") name:
+          input(type="text", name="character[name]", value=character.name)
+      p
+        label(for="character[iplay4eKey]") iplay4eKey:
+          input(type="text", name="character[iplay4eKey]", value=character.iplay4eKey)
+    p.buttons
+      input(type="submit", value="Save")

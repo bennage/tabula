@@ -11,7 +11,6 @@ module.exports = {
 
     create: [
       helper.restrict,
-      helper.context,
       function(req,res) {
         var character = new Character();
         var property;

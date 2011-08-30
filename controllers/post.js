@@ -9,7 +9,6 @@ module.exports = {
 
     index: [
       helper.restrict,
-      helper.context,
       function(req, res){
         
         if(!req.context.campaign) {
@@ -50,7 +49,6 @@ module.exports = {
 
     create: [
       helper.restrict,
-      helper.context,
       function(req, res) {
           var context = req.context;
 

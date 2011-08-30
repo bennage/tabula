@@ -43,9 +43,9 @@ module.exports = {
             if(!req.context.campaign && user.campaigns.length > 0) {
                 req.context.campaign = user.campaigns[0];
                 
-                var master = req.context.campaign.master;
+                var master = req.context.campaign.masterId;
 debugger; //try changing the name to masterId??
-                req.context.master = (master.id._id == user._id);
+                req.context.isMaster = (master.id._id == user._id);
             }
 
             if(!req.context.character && user.characters.length > 0) {

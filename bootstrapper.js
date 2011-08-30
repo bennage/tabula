@@ -32,6 +32,7 @@ function bootApplication(app) {
     app.use(require('stylus').middleware({ src: __dirname + '/public' }));
     app.use(express.static(__dirname + '/public'));
     app.use(require('./auth').configure(app));
+    app.use(require('./helper').context)
     app.use(app.router);
   });
 
@@ -88,7 +89,7 @@ function bootApplication(app) {
     },
 
     isMaster: function(req){
-      return (req.context && req.context.master);
+      return (req.context && req.context.isMaster);
     },
 
     user: function(req) {

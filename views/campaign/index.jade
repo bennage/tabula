@@ -1,6 +1,13 @@
-h1 Campaigns
+.page
+	h1 Campaigns
 
-ul
--each campaign in campaigns
-	li
-		a(href='/campaigns/join/' + campaign.id)= campaign.name
+
+	-if(campaigns.length ===0)
+		p There are currently no campaigns.
+
+	a(href='/campaigns/add/') start campaign
+	
+	ul
+	-each campaign in campaigns
+		li
+			a(href='/campaigns/join/' + campaign.id)= campaign.name

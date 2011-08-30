@@ -12,7 +12,6 @@ module.exports = {
 
     create: [
       helper.restrict,
-      helper.context,
       function(req,res) {
       var campaign = new Campaign();
       var property;
@@ -22,7 +21,8 @@ module.exports = {
         campaign[property] = req.body.campaign[property];
       }
 
-      campaign.master = userId;
+debugger;
+      campaign.masterId = userId.toString();
 
       campaign.save(function(e,data){
         User.findById(userId, function(err, user) {
@@ -35,7 +35,6 @@ module.exports = {
 
     'get /campaigns/join': [
       helper.restrict,
-      helper.context,
       function(req,res) {
         Campaign.find({}, function(error, docs) {
           res.render('campaign/index', { campaigns: docs } );
@@ -45,7 +44,6 @@ module.exports = {
 
     'get /campaigns/join/:id' : [
       helper.restrict,
-      helper.context,
       function(req,res) {
         Campaign.findById(req.params.id, function(e,campaign) {
           if(!campaign) {
