@@ -33,6 +33,7 @@ section(role='game')
 				a(href='/campaigns/' + currentCampaign.id)= currentCampaign.name
 				-if(isMaster)
 					p You are the GM
+					a(href='/scenes/') edit scene
 			-else
 				a(href='/campaigns/join/') join a campaign
 		.character

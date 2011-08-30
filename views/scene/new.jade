@@ -1,0 +1,18 @@
+.page
+  h1 scene
+
+  form(method="post")
+    fieldset
+      legend scene
+      p
+        label(for="scene[name]") name:
+          input(type="text", name="scene[name]", value=scene.name)
+      p
+        label(for="scene[descrtiption]") descrtiption:
+          textarea(name="scene[descrtiption]", value=scene.descrtiption)
+      p
+        label(for="scene[imageUrl]") imageUrl:
+          input(type="url", imageUrl="scene[imageUrl]", value=scene.imageUrl)    
+          
+    p.buttons
+      input(type="submit", value="Save")

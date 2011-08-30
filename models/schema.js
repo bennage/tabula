@@ -31,6 +31,17 @@ var Campaign = new Schema({
     characters: [ObjectId]
 });
 
+
+var Scene = new Schema({
+  name: String,
+  description: String,
+  began: Date,
+  ended: Date,
+  imageUrl: String,
+  campaignId: ObjectId
+});
+
 mongoose.model('User', User);
 mongoose.model('Campaign', Campaign);
 mongoose.model('Character', Character);
+mongoose.model('Scene', Scene);
