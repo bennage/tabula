@@ -48,6 +48,15 @@ module.exports = {
                 // perhaps it's related to campaign being nested?
                 var isMaster = req.context.campaign.doc.masterId.id === user.doc._id.id;
                 req.context.isMaster = isMaster;
+
+                if(isMaster) {
+                    req.context.character = {
+                        id: null,
+                        name: 'gm',
+                        campaignId: req.context.campaign.id,
+                        userId: user.id
+                    };
+                }
             }
 
             if(!req.context.character && user.characters.length > 0) {
