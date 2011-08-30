@@ -42,10 +42,12 @@ module.exports = {
 
             if(!req.context.campaign && user.campaigns.length > 0) {
                 req.context.campaign = user.campaigns[0];
-                
-                var master = req.context.campaign.masterId;
-debugger; //try changing the name to masterId??
-                req.context.isMaster = (master.id._id == user._id);
+
+                // hack: I don't understand why I can't simply do:
+                // req.context.campaign.masterId.id == user.id
+                // perhaps it's related to campaign being nested?
+                var isMaster = req.context.campaign.doc.masterId.id === user.doc._id.id;
+                req.context.isMaster = isMaster;
             }
 
             if(!req.context.character && user.characters.length > 0) {
