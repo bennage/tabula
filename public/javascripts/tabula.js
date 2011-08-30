@@ -101,6 +101,10 @@
 		$('#post-template').template('post-template');
 		$('#roll-template').template('roll-template');
 
+		$('#messages').click(function(){
+			$(this).hide('slow');
+		});
+
 		$('button[data-action]').click(function(){
 			var action = $(this).data('action');
 			if(actions[action]) { actions[action](); }
