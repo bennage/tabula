@@ -52,6 +52,17 @@
 		});
 	}
 
+	function getScene() {
+		$.ajax({
+			url: '/scenes/' + page,
+			success: renderScene
+		});
+	}
+
+	function renderScene(res) {
+		debugger;
+	}
+
 	function renderPage(res) {
 		var area = $('#pagination');
 		area.empty();
