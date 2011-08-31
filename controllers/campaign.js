@@ -1,13 +1,17 @@
 var mongoose = require('mongoose');
 var Campaign = mongoose.model('Campaign');
 var Character = mongoose.model('Character');
+var Scene = mongoose.model('Scene');
 var User = mongoose.model('User');
 var helper = require('../helper');
 
 module.exports = {
   
     add: function(req,res) {
-      res.render('campaign/new.jade', { campaign: new Campaign() });
+      res.render('campaign/new.jade', { 
+        campaign: new Campaign(),
+        scene: new Scene
+      });
     },
 
     create: [
@@ -21,14 +25,19 @@ module.exports = {
         campaign[property] = req.body.campaign[property];
       }
 
-debugger;
       campaign.masterId = userId.toString();
 
       campaign.save(function(e,data){
+
         User.findById(userId, function(err, user) {
           user.campaigns.push( data );
           user.save();
         });
+
+        var scene = new Scene(req.body.scene);
+        scene.campaignId = data;
+        scene.save();
+        
         res.redirect('/campaigns/' + data.id);
       });
     }],

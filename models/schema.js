@@ -40,6 +40,11 @@ var Scene = new Schema({
   campaignId: ObjectId
 });
 
+Scene.path('began')
+    .default(function(){
+       return new Date();
+     });
+
 mongoose.model('User', User);
 mongoose.model('Campaign', Campaign);
 mongoose.model('Character', Character);
