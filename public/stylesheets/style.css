@@ -295,10 +295,14 @@ section[role=game] {
 #board {
   padding: 12px;
 }
+#focus {
+  padding: 12px;
+}
 #roll .roll {
   background-color: #665446;
+  min-width: 96px;
   margin-top: 2px;
-  padding: 4px;
+  padding: 8px;
   color: #fff;
 }
 #roll .roll .total {
