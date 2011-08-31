@@ -31,7 +31,6 @@ var Campaign = new Schema({
     characters: [ObjectId]
 });
 
-
 var Scene = new Schema({
   name: String,
   description: String,

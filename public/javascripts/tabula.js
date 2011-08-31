@@ -98,18 +98,22 @@
 
 	$(document).ready(function() {
 
+		// preload templates
 		$('#post-template').template('post-template');
 		$('#roll-template').template('roll-template');
 
+		// wire flash messages for hiding
 		$('#messages').click(function(){
 			$(this).hide('slow');
 		});
 
+		// bind buttons
 		$('button[data-action]').click(function(){
 			var action = $(this).data('action');
 			if(actions[action]) { actions[action](); }
 		});
 
+		// show roll results on hover
 		$('.post').live('hover', function(){
 			var data = $.tmplItem(this).data;
 			$('#roll').empty();
@@ -118,6 +122,7 @@
 			}
 		});
 
+		// get the current posts
 		getStream();
 	});
 
