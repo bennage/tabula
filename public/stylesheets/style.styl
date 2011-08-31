@@ -1,4 +1,5 @@
 @import 'normalize'
+@import 'mixins'
 
 bg = rgb(222,242,196)
 dark = rgb(102,84,70)
@@ -7,9 +8,11 @@ accent2 = rgb(174,204,182)
 accent = rgb(128,153,148)
 light_text = hsl(0,100%,100%)
 
+dirt = url('/images/dirt.png')
+
 pad = 12px
 
-div, header, footer, section
+body, div, header, footer, section
 	box-sizing border-box 
 
 html
@@ -19,7 +22,7 @@ html
 body
 	font 14px 'Lucida Grande', Helvetica, Arial, sans-serif
 	background-color bg
-	background-image url('/images/dirt.png')
+	background-image dirt
 	height 100%
 	width 100%
 
@@ -27,21 +30,17 @@ body
 	margin 0 12px
 
 header
-	display table
 	width 100%
 	background-color dark
-	background-image url('/images/dirt.png')
+	background-image dirt
 	padding pad
 
 	#account
-		display table-cell
-		width 20%
-
+		position absolute
+		right pad
+		top pad
 	h1
-		display table-cell
-		width 80%
 		margin 0
-
 		a, a:visited
 			text-decoration none
 			color light_text
@@ -49,45 +48,33 @@ header
 
 footer
 	background-color dark
-	background-image url('/images/dirt.png')
+	background-image dirt
 	padding pad
 	color white
 
+.root
+	box()
+	vendor(box-orient, vertical)
+	vendor(box-pack, stretch)
+
 #main
+	box()
+	vendor(box-flex, 1)
 	height 100%
 	width 100%
-	display: -webkit-box;
-	display: -moz-box;
-	display: box;
-
-	-webkit-box-orient: vertical;
-	-moz-box-orient: vertical;
-	box-orient: vertical;
 
 section[role=game] 
-	display -webkit-box
-	display -moz-box
-	display box
-
-	-webkit-box-flex: 1;
-	-moz-box-flex: 1;
-	box-flex: 1;
+	box()
+	vendor(box-flex, 1)
+	vendor(box-pack, start)
 
 #context
 	width 240px
-	min-height 400px
 	background-color accent2
 	padding pad
 
 #board
-	-webkit-box-flex 1
-	-moz-box-flex 1
-	box-flex 1
 	padding pad
-
-.create
-	display none
-
 
 #roll 
 	.roll

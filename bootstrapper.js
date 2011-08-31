@@ -3,16 +3,10 @@ var express = require('express');
 var mongoose = require('mongoose');
 var models = require('./models/schema');
 var helper = require('./helper');
+var viewHelpers = require('./viewHelpers');
 
-var connectionString = process.env['MONGOHQ_URL'] ||'mongodb://localhost/tabula';
+var connectionString = process.env.MONGOHQ_URL ||'mongodb://localhost/tabula';
 mongoose.connect(connectionString);
-
-exports.boot = function(app){
-  bootApplication(app);
-  bootControllers(app);
-};
-
-// App settings and middleware
 
 function bootApplication(app) {
 
@@ -32,13 +26,15 @@ function bootApplication(app) {
     app.use(require('stylus').middleware({ src: __dirname + '/public' }));
     app.use(express.static(__dirname + '/public'));
     app.use(require('./auth').configure(app));
-    app.use(require('./helper').context)
+    app.use(require('./helper').context);
     app.use(app.router);
   });
 
   app.configure('production', function(){
     app.use(express.errorHandler()); 
   });
+
+  viewHelpers.initialize(app);
 
   app.redirect('login','/');
 
@@ -72,76 +68,23 @@ function bootApplication(app) {
 
   });
 
-  // // Example 500 page
-  // app.use(function(err, req, res, next){
-  //   res.render('500');
-  // });
-
-  // // Example 404 page via simple Connect middleware
-  // app.use(function(req, res){
-  //   res.render('404');
-  // });
-
-  // Some dynamic view helpers
-  app.dynamicHelpers({
-    request: function(req){
-      return req;
-    },
-
-    isMaster: function(req){
-      return (req.context && req.context.isMaster);
-    },
-
-    user: function(req) {
-      return (req.context && req.context.user)
-        ? req.context.user
-        : null;
-    },
-
-    currentCharacter: function(req) {
-      return (req.context && req.context.character)
-        ? req.context.character
-        : null;
-    },
-
-    currentCampaign: function(req) {
-      return (req.context && req.context.campaign)
-        ? req.context.campaign
-        : null;
-    },
-
-    hasMessages: function(req){
-      if (!req.session) { return false; }
-      return Object.keys(req.session.flash || {}).length > 0;
-    },
-
-    messages: function(req){
-        var flashes = req.flash();
-        var agg = Object.keys(flashes).reduce(function(accum, type){
-            var flattened = flashes[type].map(function(item){
-              return { type: type, content: item };
-            });
-          return accum.concat(flattened);
-        }, []);
-        return agg;
-    }
-  });
 }
 
-// Bootstrap controllers
+function interpretAction(app, verb, route, functions) {
+  console.log('    registering ' + verb + ': ' + route);
 
-function bootControllers(app) {
-  fs.readdir(__dirname + '/controllers', function(err, files){
-    if (err) { throw err; }
-    files.forEach(function(file){
-      console.log('loading controller: ' + file);
-      bootController(app, file);
-    });
-  });
+  // ensure that we have an array of functions 
+  // (to allow for middleware)
+  if(!Array.isArray(functions)){
+    functions = [functions];
+  }
+  
+  // prepend the route
+  functions.splice(0,0,route);
+
+  app[verb].apply(app, functions);
 }
-
-// Example (simplistic) controller support
-
+  
 function bootController(app, file) {
   var name = file.replace('.js', '')
     , actions = require('./controllers/' + name)
@@ -196,21 +139,6 @@ function bootController(app, file) {
   });
 }
 
-function interpretAction(app, verb, route, functions) {
-  console.log('    registering ' + verb + ': ' + route);
-
-  // ensure that we have an array of functions 
-  // (to allow for middleware)
-  if(!Array.isArray(functions)){
-    functions = [functions];
-  }
-  
-  // prepend the route
-  functions.splice(0,0,route);
-
-  app[verb].apply(app, functions);
-}
-
 // Proxy res.render() to add some magic
 
 function controllerAction(name, plural, action, fn) {
@@ -248,3 +176,19 @@ function controllerAction(name, plural, action, fn) {
     fn.apply(this, arguments);
   };
 }
+
+// Bootstrap controllers
+function bootControllers(app) {
+  fs.readdir(__dirname + '/controllers', function(err, files){
+    if (err) { throw err; }
+    files.forEach(function(file){
+      console.log('loading controller: ' + file);
+      bootController(app, file);
+    });
+  });
+}
+
+exports.boot = function(app){
+  bootApplication(app);
+  bootControllers(app);
+};

@@ -28,21 +28,22 @@ script#roll-template(type='text/x-jquery-tmpl')
 
 section(role='game')
 	#context
-		.campaign
+		.campaign(title='The currently selected campaign.')
 			-if(currentCampaign)
 				a(href='/campaigns/' + currentCampaign.id)= currentCampaign.name
-				-if(isMaster)
-					p You are the GM
-					a(href='/scenes/') edit scene
 			-else
 				a(href='/campaigns/join/') join a campaign
-		.character
-			-if(currentCharacter)
+		.character(title='You are playing as ...')
+			-if(currentCharacter && !isMaster)
 				a(href='/characters/' + currentCharacter.id)=currentCharacter.name
+			-else if(currentCharacter && isMaster)
+				span You are the GM
 			-else
 				a(href='/characters/add') create a character
-		#roll
-			p hover over a post to see any rolls
+
+		-if(isMaster)
+			div
+				a(href='/scenes/') edit scene
 		
 	#board
 		-if(currentCampaign)
@@ -59,4 +60,7 @@ section(role='game')
 			#stream
 		-else
 			p
-				
+
+	#focus
+		#roll
+			p hover over a post to see any rolls			

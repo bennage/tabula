@@ -8,7 +8,7 @@ html
     script(src='/javascripts/Modernizr.js')
     script(src='/javascripts/jquery.prettydate.js')
 
-  body
+  body.root
     -if(hasMessages) 
         #messages
             -each message in messages

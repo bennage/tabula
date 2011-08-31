@@ -192,6 +192,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+body,
 div,
 header,
 footer,
@@ -213,19 +214,17 @@ body {
   margin: 0 12px;
 }
 header {
-  display: table;
   width: 100%;
   background-color: #665446;
   background-image: url("/images/dirt.png");
   padding: 12px;
 }
 header #account {
-  display: table-cell;
-  width: 20%;
+  position: absolute;
+  right: 12px;
+  top: 12px;
 }
 header h1 {
-  display: table-cell;
-  width: 80%;
   margin: 0;
 }
 header h1 a,
@@ -240,38 +239,61 @@ footer {
   padding: 12px;
   color: #fff;
 }
-#main {
-  height: 100%;
-  width: 100%;
+.root {
   display: -webkit-box;
   display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
   display: box;
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  -o-box-orient: vertical;
   box-orient: vertical;
+  -webkit-box-pack: stretch;
+  -moz-box-pack: stretch;
+  -ms-box-pack: stretch;
+  -o-box-pack: stretch;
+  box-pack: stretch;
+}
+#main {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
+  display: box;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  height: 100%;
+  width: 100%;
 }
 section[role=game] {
   display: -webkit-box;
   display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
   display: box;
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  -o-box-flex: 1;
   box-flex: 1;
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  -ms-box-pack: start;
+  -o-box-pack: start;
+  box-pack: start;
 }
 #context {
   width: 240px;
-  min-height: 400px;
   background-color: #aeccb6;
   padding: 12px;
 }
 #board {
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  box-flex: 1;
   padding: 12px;
-}
-.create {
-  display: none;
 }
 #roll .roll {
   background-color: #665446;
@@ -348,9 +370,6 @@ section[role=game] {
 .post.ooc .meta {
   background-color: #998fa3;
 }
-#messages .error {
-  color: #000;
-}
 #messages {
   position: absolute;
   z-index: 101;
@@ -364,7 +383,12 @@ section[role=game] {
   overflow: hidden;
   -webkit-box-shadow: 0 0 5px #000;
   -moz-box-shadow: 0 0 5px #000;
+  -ms-box-shadow: 0 0 5px #000;
+  -o-box-shadow: 0 0 5px #000;
   box-shadow: 0 0 5px #000;
   color: #fff;
   text-shadow: #fff 0px 0px 2px, #000 1px 1px 0px;
+}
+#messages .error {
+  color: #000;
 }
