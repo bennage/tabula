@@ -1,0 +1,606 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"cam",
+				"campaign"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/bennage/dev/tabula/public/javascripts/tabula.js",
+			"settings":
+			{
+				"buffer_size": 2790,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/bennage/dev/tabula/models/schema.js",
+			"settings":
+			{
+				"buffer_size": 995,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/bennage/dev/tabula/views/index.jade",
+			"settings":
+			{
+				"buffer_size": 1503,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/bennage/dev/tabula/views/campaign/new.jade",
+			"settings":
+			{
+				"buffer_size": 620,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/bennage/dev/tabula/controllers/campaign.js",
+			"settings":
+			{
+				"buffer_size": 2243,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 259,
+		"selected_items":
+		[
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"inde",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"in",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"disc",
+				"Package Control: Discover Packages"
+			],
+			[
+				"go",
+				"Set Syntax: Go"
+			],
+			[
+				"ind",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"",
+				"Indentation: Convert to Spaces"
+			]
+		],
+		"width": 449
+	},
+	"console":
+	{
+		"height": 278
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/bennage/dev/tabula/controllers/scene.js",
+		"/home/bennage/dev/tabula/bootstrapper.js",
+		"/home/bennage/dev/tabula/views/index.jade",
+		"/home/bennage/dev/tabula/viewHelpers.js",
+		"/home/bennage/dev/tabula/public/stylesheets/style.styl",
+		"/home/bennage/dev/tabula/public/stylesheets/mixins.styl",
+		"/home/bennage/dev/tabula/views/layout.jade",
+		"/home/bennage/dev/tabula/public/stylesheets/roll.styl",
+		"/home/bennage/dev/tabula/public/stylesheets/notification.styl",
+		"/home/bennage/dev/tabula/views/character/new.jade",
+		"/home/bennage/dev/tabula/views/scene/new.jade",
+		"/home/bennage/dev/tabula/public/stylesheets/normalize.styl",
+		"/home/bennage/dev/tabula/public/stylesheets/notification-animations.css",
+		"/home/bennage/dev/tabula/models/Post.js",
+		"/home/bennage/dev/tabula/models/schema.js",
+		"/home/bennage/dev/tabula/models/Scene.js",
+		"/home/bennage/dev/tabula/specs/dice.js",
+		"/home/bennage/dev/tabula/controllers/campaign.js",
+		"/home/bennage/dev/tabula/auth.js",
+		"/home/bennage/dev/tabula/helper.js",
+		"/home/bennage/dev/tabula/controllers/post.js",
+		"/home/bennage/dev/tabula/views/character/show.jade",
+		"/home/bennage/dev/tabula/controllers/app.js",
+		"/home/bennage/dev/tabula/views/campaign/show.jade",
+		"/home/bennage/dev/tabula/views/campaign/new.jade",
+		"/home/bennage/dev/tabula/views/campaign/index.jade",
+		"/home/bennage/dev/tabula/controllers/character.js",
+		"/home/bennage/dev/tabula/public/stylesheets/post.styl",
+		"/home/bennage/dev/tabula/models/dice.js",
+		"/home/bennage/dev/tabula/public/javascripts/tabula.js",
+		"/home/bennage/dev/tabula/public/javascripts/jquery.prettydate.js",
+		"/home/bennage/dev/tabula/specs/routes.js",
+		"/home/bennage/dev/tabula/public/javascripts/Modernizr.js",
+		"/home/bennage/dev/tabula/package.json",
+		"/home/bennage/dev/tabula/specs/model_for_a_Post.js",
+		"/home/bennage/dev/tabula/specs/controller_for_posts.js",
+		"/home/bennage/dev/tabula/specs/dice",
+		"/home/bennage/dev/sandbox/test.js",
+		"/home/bennage/dev/sandbox/mod.js",
+		"/home/bennage/dev/tabula/public/stylesheets/reset.styl",
+		"/home/bennage/dev/tabula/boot.js",
+		"/home/bennage/dev/tabula/controllers/controller_for_posts.js",
+		"/home/bennage/dev/tabula/controllers/main.js",
+		"/home/bennage/dev/tabula/app.js",
+		"/home/bennage/dev/tabula/routes/main.js",
+		"/home/bennage/dev/tabula/routes/post.js",
+		"/home/bennage/dev/tabula/mvc.js",
+		"/home/bennage/dev/tabula/tabula.sublime-project",
+		"/home/bennage/dev/tabula/autotest.rb",
+		"/home/bennage/dev/tabula/specs/the_model_for_a_Post.js",
+		"/home/bennage/dev/tabula/test.txt",
+		"/home/bennage/dev/tabula/autotest.watchr",
+		"/home/bennage/dev/tabula/specs/tests.js",
+		"/home/bennage/dev/tabula/.gitignore",
+		"/home/bennage/dev/tabula/run_tests",
+		"/home/bennage/dev/tabula/run_tests.sh",
+		"/home/bennage/dev/tabula/UserProvider.js",
+		"/home/bennage/dev/tabula/PostProvider.js",
+		"/home/bennage/dev/tabula/Repository.js",
+		"/home/bennage/dev/tabula/models/Schema.js",
+		"/home/bennage/dev/tabula/models/Schema",
+		"/home/bennage/dev/tabula/config.js",
+		"/home/bennage/dev/tabula/node_modules/mongodb/lib/mongodb/db.js",
+		"/home/bennage/dev/tabula/Procfile",
+		"/home/bennage/dev/tabula/.hgignore",
+		"/home/bennage/dev/tabula/views/login.jade",
+		"/home/bennage/dev/everyauth/package.json",
+		"/etc/hosts",
+		"/home/bennage/.config/sublime-text-2/Packages/User/coffee-script.sublime-build",
+		"/home/bennage/.config/sublime-text-2/Packages/User/jslint.sublime-build",
+		"/home/bennage/dev/tabula/PostProvider2.js",
+		"/home/bennage/dev/tabula/PostProvider2.coffee",
+		"/home/bennage/dev/tabula/test.coffee",
+		"/home/bennage/dev/tabula/PostProvider.coffee",
+		"/home/bennage/.config/sublime-text-2/Packages/CoffeeScript/README.markdown",
+		"/home/bennage/dev/tabula/public/stylesheets/style.css",
+		"/home/bennage/.config/sublime-text-2/Packages/Go/Go.tmLanguage",
+		"/home/bennage/.config/sublime-text-2/Packages/Jade/jade-tmbundle/README.md",
+		"/home/bennage/.config/sublime-text-2/Packages/Jade/jade-tmbundle/Syntaxes/Jade.tmLanguage",
+		"/home/bennage/dev/tabula/views/post_new.jade",
+		"/home/bennage/.config/sublime-text-2/Packages/User/sample.py",
+		"/home/bennage/.config/sublime-text-2/Packages/D/D.sublime-build",
+		"/home/bennage/dev/mensa/views/index.jade",
+		"/home/bennage/dev/mensa/views/layout.jade",
+		"/home/bennage/dev/mensa/app.js"
+	],
+	"find":
+	{
+		"height": 33
+	},
+	"find_in_files":
+	{
+		"height": 87,
+		"include_history":
+		[
+			"*.js",
+			"*.seed"
+		],
+		"location_history":
+		[
+			"/home/bennage/dev/tabula",
+			"<open folders>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"campaign",
+			"Campaign",
+			"campaign",
+			"Campaign",
+			"campaign",
+			"Campaign",
+			"campaign",
+			"Campaign",
+			"imageUrl",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character",
+			"character",
+			"Character"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"'"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/bennage/dev/tabula/public/javascripts/tabula.js",
+					"settings":
+					{
+						"buffer_size": 2790,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1017,
+								1017
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 600,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/bennage/dev/tabula/models/schema.js",
+					"settings":
+					{
+						"buffer_size": 995,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								729,
+								737
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 273,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/bennage/dev/tabula/views/index.jade",
+					"settings":
+					{
+						"buffer_size": 1503,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1202,
+								1202
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/jade-tmbundle/Syntaxes/Jade.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 390,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/bennage/dev/tabula/views/campaign/new.jade",
+					"settings":
+					{
+						"buffer_size": 620,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								620,
+								620
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/jade-tmbundle/Syntaxes/Jade.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/bennage/dev/tabula/controllers/campaign.js",
+					"settings":
+					{
+						"buffer_size": 2243,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1511,
+								1511
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 906,
+						"zoom_level": 1
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0
+	},
+	"input":
+	{
+		"height": 29
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0,
+			1
+		],
+		"rows":
+		[
+			0,
+			1
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 248
+	},
+	"replace":
+	{
+		"height": 62
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0,
+		"selected_items":
+		[
+			[
+				"tab",
+				"public/javascripts/tabula.js"
+			],
+			[
+				"boot",
+				"bootstrapper.js"
+			],
+			[
+				"new",
+				"views/campaign/new.jade"
+			],
+			[
+				"styl",
+				"public/stylesheets/style.styl"
+			],
+			[
+				"post",
+				"controllers/post.js"
+			],
+			[
+				"chara",
+				"controllers/character.js"
+			],
+			[
+				"layou",
+				"views/layout.jade"
+			],
+			[
+				"style",
+				"public/stylesheets/style.styl"
+			]
+		],
+		"width": 0
+	},
+	"select_project":
+	{
+		"height": 0,
+		"selected_items":
+		[
+		],
+		"width": 0
+	},
+	"show_minimap": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 268,
+	"status_bar_visible": true
+}
