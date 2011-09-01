@@ -292,11 +292,17 @@ section[role=game] {
   background-color: #aeccb6;
   padding: 12px;
 }
+#context img {
+  max-width: 200px;
+}
 #board {
   padding: 12px;
 }
 #focus {
   padding: 12px;
+}
+#preview {
+  position: absolute;
 }
 #roll .roll {
   background-color: #665446;
