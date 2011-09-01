@@ -4,16 +4,21 @@ var helper = require('../helper');
 
 module.exports = {
 
-    show: [
+    'get /scenes/current': [
         helper.restrict,
-	    function(req,res) {
-	        Scene.findById(req.params.id, function(e,scene) {
-	          if(!scene) {
-	            res.render(404);            
-	          } else {
-	            res.json(scene);
-	          }
-	      });
-	    }
+        function(req,res) {
+            
+            var campaignId = req.context.campaign.id;
+            Scene.find({campaignId:campaignId})
+            .desc('began')
+            .limit(1)
+            .exec(function(e,scenes) {
+              if(!scenes) {
+                res.render(404);
+              } else {
+                res.json(scenes[0]);
+              }
+          });
+        }
     ]
 };

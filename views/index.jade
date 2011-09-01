@@ -15,6 +15,13 @@ script#pagination-template(type='text/x-jquery-tmpl')
 	a.next(href='#') next
 	.count ${count} post(s)
 
+script#scene-template(type='text/x-jquery-tmpl')
+	h2 ${name}
+	p ${descrtiption}
+	{{if imageUrl}}
+	img(src='${imageUrl}')
+	{{/if}}
+
 script#roll-template(type='text/x-jquery-tmpl')
 	.roll
 		.total rolled ${total}
@@ -44,7 +51,8 @@ section(role='game')
 		-if(isMaster)
 			div
 				a(href='/scenes/') edit scene
-		
+		#scene
+			
 	#board
 		-if(currentCampaign)
 			#commands

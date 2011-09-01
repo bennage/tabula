@@ -54,13 +54,16 @@
 
 	function getScene() {
 		$.ajax({
-			url: '/scenes/' + page,
+			url: '/scenes/current',
 			success: renderScene
 		});
 	}
 
 	function renderScene(res) {
-		debugger;
+		if(typeof(res) === 'string'){
+			return;
+		}
+		$.tmpl('scene-template', res ).prependTo( '#scene' );
 	}
 
 	function renderPage(res) {
@@ -112,6 +115,8 @@
 		// preload templates
 		$('#post-template').template('post-template');
 		$('#roll-template').template('roll-template');
+		$('#scene-template').template('scene-template');
+
 
 		// wire flash messages for hiding
 		$('#messages').click(function(){
@@ -135,6 +140,7 @@
 
 		// get the current posts
 		getStream();
+		getScene();
 	});
 
 }());
