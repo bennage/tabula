@@ -238,6 +238,7 @@ footer {
   background-image: url("/images/dirt.png");
   padding: 12px;
   color: #fff;
+  display: none;
 }
 .root {
   display: -webkit-box;
@@ -325,7 +326,7 @@ section[role=game] {
   display: none;
 }
 #chat {
-  width: 432px;
+  width: 480px;
   height: 96px;
   border: 1px solid #809994;
   margin: 4px;
@@ -339,23 +340,22 @@ section[role=game] {
 }
 #chat .input {
   display: table-cell;
-  width: 360px;
+  width: 384px;
 }
 #chat .butttons {
   display: table-cell;
 }
 .post {
-  width: 432px;
-  border: 1px solid #809994;
+  width: 480px;
   margin: 4px;
   display: table;
 }
 .post .body {
   display: table-cell;
-  padding: 6px;
+  padding: 12px;
 }
 .post .when {
-  font-size: 80%;
+  font-size: 72%;
   opacity: 0.4;
 }
 .post .type {
@@ -370,15 +370,102 @@ section[role=game] {
 .post .meta {
   display: table-cell;
   width: 96px;
-  background-color: #809994;
   padding: 6px;
 }
 .post .meta .character a {
   text-decoration: none;
   color: #000;
 }
+.post.narrate .body {
+  border-left: 1px solid #809994;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
 .post.ooc .meta {
   background-color: #998fa3;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+}
+.post.say .body {
+  height: 80px;
+  background: #e6e6e6;
+  position: relative;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 4px #888;
+  -moz-box-shadow: 2px 2px 4px #888;
+  -ms-box-shadow: 2px 2px 4px #888;
+  -o-box-shadow: 2px 2px 4px #888;
+  box-shadow: 2px 2px 4px #888;
+}
+.post.say .body:before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 26px;
+  width: 0;
+  height: 0;
+  border-top: 13px solid transparent;
+  border-right: 26px solid #e6e6e6;
+  border-bottom: 13px solid transparent;
+}
+.post.think .body {
+  position: relative;
+  height: 80px;
+  background-color: #e6e6e6;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: 2px 2px 4px #888;
+  -moz-box-shadow: 2px 2px 4px #888;
+  -ms-box-shadow: 2px 2px 4px #888;
+  -o-box-shadow: 2px 2px 4px #888;
+  box-shadow: 2px 2px 4px #888;
+}
+.post.think .body:before,
+.post.think .body:after {
+  content: "";
+  position: absolute;
+  background-color: #e6e6e6;
+  opacity: 0.5;
+  -webkit-box-shadow: 2px 2px 4px #888;
+  -moz-box-shadow: 2px 2px 4px #888;
+  -ms-box-shadow: 2px 2px 4px #888;
+  -o-box-shadow: 2px 2px 4px #888;
+  box-shadow: 2px 2px 4px #888;
+}
+.post.think .body:before {
+  left: -20px;
+  top: 15px;
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 28px;
+  -moz-border-radius: 28px;
+  -ms-border-radius: 28px;
+  -o-border-radius: 28px;
+  border-radius: 28px;
+}
+.post.think .body:after {
+  left: -30px;
+  top: 25px;
+  width: 20px;
+  height: 20px;
+  -webkit-border-radius: 18px;
+  -moz-border-radius: 18px;
+  -ms-border-radius: 18px;
+  -o-border-radius: 18px;
+  border-radius: 18px;
 }
 #messages {
   position: absolute;

@@ -1,8 +1,11 @@
+shadow = 2px 2px 4px #888
+chat-width = 24px * 20
+
 #commands
 	display none
 
 #chat
-	width 432px
+	width chat-width
 	height 96px
 	border 1px solid accent
 	margin 4px
@@ -16,23 +19,22 @@
 
 	.input
 		display table-cell
-		width 360px
+		width chat-width - 96px
 
 	.butttons
 		display table-cell
 
 .post
-	width 432px
-	border 1px solid accent
+	width chat-width
 	margin 4px
 	display table
 
 	.body
 		display table-cell
-		padding 6px
+		padding pad
 
 	.when
-		font-size 80%
+		font-size 72%
 		opacity 0.4
 
 	.type
@@ -48,12 +50,63 @@
 	.meta
 		display table-cell
 		width 96px
-		background-color accent
 		padding 6px
 
 		.character a
 			text-decoration none
 			color black
 
-.post.ooc .meta
-	background-color hsl(270,10%,60%)
+.post.narrate
+	.body
+		border-left 1px solid accent
+		vendor(border-radius, 10px)
+
+.post.ooc 
+	.meta
+		background-color hsl(270,10%,60%)
+		vendor(border-radius, 6px)
+
+.post.say
+	.body
+		height 80px
+		background speech_bg
+		position relative
+		vendor(border-radius, 10px)
+		vendor(box-shadow, shadow)
+	.body:before
+		content ""
+		position absolute
+		right 100%
+		top 26px
+		width 0
+		height 0
+		border-top 13px solid transparent
+		border-right 26px solid speech_bg
+		border-bottom 13px solid transparent
+
+.post.think
+	.body  
+		position relative
+		height 80px
+		background-color speech_bg
+		vendor(border-radius, 20px)
+		vendor(box-shadow, shadow)
+	.body:before, .body:after
+		content ""
+		position absolute
+		background-color speech_bg
+		opacity 0.5
+		vendor(box-shadow, shadow)
+
+	.body:before
+		left -20px
+		top 15px
+		width 30px
+		height 30px
+		vendor(border-radius, 28px)
+	.body:after  
+		left -30px
+		top 25px
+		width 20px
+		height 20px
+		vendor(border-radius, 18px)
