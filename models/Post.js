@@ -32,12 +32,19 @@ var types = {
     }
 };
 
+function applyColors(text) {
+  text = text.replace(/{([^:])/i,function(m) {
+      return '<span class="color" style="color' + RegExp.$1 + ':">';
+    });
+  return text.replace(/}/,'</span>');
+}
+
 // define methods
 Post.method({
   parse: function (incoming) {
     var re = /\b([a-z]+)\b/i;
     var m = re.exec(incoming);
-    var type = m ? m[0] : 'narrate';
+    var type = m ? m[0].toLowerCase() : 'narrate';
     var data;
 
     if(typeof types[type] !== 'undefined') {
@@ -57,7 +64,7 @@ Post.method({
     }
 
     this.type = type;
-    this.body = data.body.trim();
+    this.body = applyColors(data.body.trim());
     this.rolls = data.rolls;
   }
 });
