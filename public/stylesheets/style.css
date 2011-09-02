@@ -299,6 +299,18 @@ section[role=game] {
 #board {
   padding: 12px;
 }
+#board #stream {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
+  display: box;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  -o-box-orient: vertical;
+  box-orient: vertical;
+}
 #focus {
   padding: 12px;
 }
@@ -348,10 +360,18 @@ section[role=game] {
 .post {
   width: 480px;
   margin: 4px;
-  display: table;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
+  display: box;
 }
 .post .body {
-  display: table-cell;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
   padding: 12px;
 }
 .post .when {
@@ -368,7 +388,6 @@ section[role=game] {
   width: 96px;
 }
 .post .meta {
-  display: table-cell;
   width: 96px;
   padding: 6px;
 }
@@ -393,7 +412,7 @@ section[role=game] {
   border-radius: 6px;
 }
 .post.say .body {
-  height: 80px;
+  min-height: 80px;
   background: #e6e6e6;
   position: relative;
   -webkit-border-radius: 10px;
@@ -420,7 +439,7 @@ section[role=game] {
 }
 .post.think .body {
   position: relative;
-  height: 80px;
+  min-height: 80px;
   background-color: #e6e6e6;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;

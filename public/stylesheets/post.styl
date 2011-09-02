@@ -27,10 +27,10 @@ chat-width = 24px * 20
 .post
 	width chat-width
 	margin 4px
-	display table
+	box()
 
 	.body
-		display table-cell
+		vendor(box-flex, 1)
 		padding pad
 
 	.when
@@ -48,7 +48,6 @@ chat-width = 24px * 20
 		
 
 	.meta
-		display table-cell
 		width 96px
 		padding 6px
 
@@ -68,7 +67,7 @@ chat-width = 24px * 20
 
 .post.say
 	.body
-		height 80px
+		min-height 80px
 		background speech_bg
 		position relative
 		vendor(border-radius, 10px)
@@ -87,7 +86,7 @@ chat-width = 24px * 20
 .post.think
 	.body  
 		position relative
-		height 80px
+		min-height 80px
 		background-color speech_bg
 		vendor(border-radius, 20px)
 		vendor(box-shadow, shadow)
