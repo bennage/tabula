@@ -1,51 +1,30 @@
 var horaa = require('horaa');
 var assert = require('assert');
+var mockQuery = require('./mockModel');
 
-function mockQuery() { 
-}
-
-mockQuery.prototype.find = function(criteria) {
-	this.criteria = criteria;
-	return this;
-};
-
-mockQuery.prototype.skip = function(count) {
-	this.skip = count;
-	return this;
-};
-
-mockQuery.prototype.limit = function(count) {
-	this.limit = count;
-	return this;
-};
-
-mockQuery.prototype.desc = function(property) {
-	this.desc = property;
-	return this;
-};
-
-mockQuery.prototype.count = function(criteria, callback) {
-	var howMany = this.howMany || 0; 
-	callback(null, howMany);
-};
-
-mockQuery.prototype.exec = function(fn) {
-	fn(null,[]);
-};
-
-//do the hijacking
 var mongoose = horaa('mongoose');
 mongoose.hijack('model', function(type) {
 	return new mockQuery();
 });
 
 var controller = require('../controllers/post');
+var req; // the default requeset object
+
 var indexAction = controller.index[1];
 
 module.exports = {
 	
-	'the index returns an empty page when no campaign is in the context': function(){
-		var req = { context: {}};
+	setup: function(done) {
+		req = { 
+			context: {},
+			params: {}
+		};
+
+		mockQuery.reset();
+		done();
+	},
+
+	'when no campaign is in the context, the index returns an empty page': function(){
 		indexAction( req,
 			{ 
 				json: function(data){
@@ -56,22 +35,53 @@ module.exports = {
 			});
 	},
 
-	'the index returns ...': function(){
-		var campaignId = 999;
-		var req = {
-				context: {
-					campaign: { id: campaignId }
-				},
-				params: {}
-			};
+	'when a campaign is in the context, the index returns pagination info': function(){
+		req.context.campaign = { id: 999 };
+
+		mockQuery.setCount(90);
+		mockQuery.setResult(new Array(10));
 
 		indexAction(req,
 			{ 
 				json: function(data){
-					assert.equal(0,data.count,'broken' +  typeof(data.count));
+					assert.equal(90,data.count);
 					assert.equal(1,data.page);
-					assert.equal(0,data.results.length);
+					assert.equal(10,data.pageSize);
+					assert.equal(10,data.results.length);
 				}
 			});
 	},
+
+	'when a campaign is in the context, the index returns the total number of posts': function(){
+		var postCount = 99;
+		req.context.campaign = { id: 999 };
+
+		mockQuery.setCount(postCount);
+		// mockQuery.setResult(new Array(10));
+
+		indexAction(req,
+			{ 
+				json: function(data){
+					assert.equal(postCount, data.count);
+				}
+			});
+	}
+
+	// 'when a campaign is in the context, the index returns pagination info': function(){
+	// 	req.context.campaign = { id: 999 };
+	// 	req.params.page = 1;
+
+	// 	mockQuery.setCount(90);
+	// 	mockQuery.setResult(new Array(10));
+
+	// 	indexAction(req,
+	// 		{ 
+	// 			json: function(data){
+	// 				assert.equal(90,data.count);
+	// 				assert.equal(1,data.page);
+	// 				assert.equal(10,data.pageSize);
+	// 				assert.equal(10,data.results.length);
+	// 			}
+	// 		});
+	// },
 };
