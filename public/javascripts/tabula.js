@@ -129,7 +129,7 @@
 		});
 
 		// show roll results on hover
-		$('.post').live('hover', function(){
+		$('.post').live('hover click', function(){
 			var data = $.tmplItem(this).data;
 			$('#roll').empty();
 			if(data.rolls && data.rolls.length) {
