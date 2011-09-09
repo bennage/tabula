@@ -34,13 +34,6 @@
 				$('.ooc').show('fast');
 			}
 			showOoc = !showOoc;
-		},
-
-		roll: function() {
-			var ta = $('#post');
-			var result = convertRolls(ta.val());
-			ta.val('');
-			$('#stream').prepend('<div>' + result + '</div>');
 		}
 	};
 
@@ -113,30 +106,8 @@
 	}
 
 	function imagePreview(){	
-		
-		xOffset = 10;
-		yOffset = 30;
-
-	$("#context img").hover(function(e){
-		this.t = this.title;
-		this.title = "";	
-		var c = (this.t != "") ? "<br/>" + this.t : "";
-		$("body").append("<p id='preview'><img src='"+ this.src +"' alt='Image preview' />"+ c +"</p>");								 
-		$("#preview")
-			.css("top",(e.pageY - xOffset) + "px")
-			.css("left",(e.pageX + yOffset) + "px")
-			.fadeIn("fast");						
-    },
-	function(){
-		this.title = this.t;
-		$("#preview").remove();
-    });	
-	$("#context img").mousemove(function(e){
-		$("#preview")
-			.css("top",(e.pageY - xOffset) + "px")
-			.css("left",(e.pageX + yOffset) + "px");
-	});			
-};
+		$("#context a.image").lightBox({containerResizeSpeed:100});
+	};
 
 	$(document).ready(function() {
 

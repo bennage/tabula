@@ -19,7 +19,8 @@ script#scene-template(type='text/x-jquery-tmpl')
 	h2 ${name}
 	p ${descrtiption}
 	{{if imageUrl}}
-	img(src='${imageUrl}',title='${name}')
+	a.image(href='${imageUrl}')
+		img(src='${imageUrl}',title='${name}')
 	{{/if}}
 
 script#roll-template(type='text/x-jquery-tmpl')

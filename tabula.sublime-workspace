@@ -47,7 +47,15 @@
 			"file": "/home/bennage/dev/tabula/specs/controller_for_posts.js",
 			"settings":
 			{
-				"buffer_size": 1205,
+				"buffer_size": 1947,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/bennage/dev/tabula/specs/mockModel.js",
+			"settings":
+			{
+				"buffer_size": 1133,
 				"line_ending": "Unix"
 			}
 		}
@@ -60,7 +68,7 @@
 		[
 			[
 				"ind",
-				"Indentation: Convert to Spaces"
+				"Indentation: Convert to Tabs"
 			],
 			[
 				"dis",
@@ -95,7 +103,7 @@
 				"Indentation: Convert to Spaces"
 			]
 		],
-		"width": 460
+		"width": 467
 	},
 	"console":
 	{
@@ -112,6 +120,8 @@
 	},
 	"file_history":
 	[
+		"/home/bennage/dev/tabula/node_modules/expresso/bin/expresso",
+		"/home/bennage/dev/tabula/specs/mockModel.js",
 		"/home/bennage/dev/tabula/package.json",
 		"/home/bennage/dev/tabula/public/stylesheets/style.styl",
 		"/home/bennage/dev/tabula/public/stylesheets/post.styl",
@@ -221,6 +231,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"prototype",
+			".prototype",
+			"title",
+			"done",
+			"serial",
+			"setup",
+			"User",
+			"controller.index[1]",
 			"shadow",
 			"40px",
 			"#fff",
@@ -245,14 +263,6 @@
 			"campaign",
 			"Campaign",
 			"imageUrl",
-			"Character",
-			"character",
-			"Character",
-			"character",
-			"Character",
-			"character",
-			"Character",
-			"character",
 			"Character",
 			"character",
 			"Character",
@@ -437,8 +447,8 @@
 						"selection":
 						[
 							[
-								1080,
-								1080
+								222,
+								223
 							]
 						],
 						"settings":
@@ -448,7 +458,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 514,
+						"translation.y": 0,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -465,8 +475,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								252,
+								252
 							]
 						],
 						"settings":
@@ -484,7 +494,7 @@
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -492,23 +502,51 @@
 					"file": "/home/bennage/dev/tabula/specs/controller_for_posts.js",
 					"settings":
 					{
-						"buffer_size": 1205,
+						"buffer_size": 1947,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								439,
-								439
+								468,
+								468
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 231,
+						"translation.y": 180,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/bennage/dev/tabula/specs/mockModel.js",
+					"settings":
+					{
+						"buffer_size": 1133,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								111,
+								111
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 0,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -544,7 +582,7 @@
 		"cols":
 		[
 			0,
-			0.467576791809,
+			0.368825910931,
 			1
 		],
 		"rows":
@@ -556,7 +594,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 110
+		"height": 251
 	},
 	"output.package_control":
 	{
@@ -619,6 +657,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 268,
+	"side_bar_width": 205,
 	"status_bar_visible": true
 }
