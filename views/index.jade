@@ -7,7 +7,7 @@ script#post-template(type='text/x-jquery-tmpl')
 				a(href='/characters/${characterId}') ${characterName}
 			.type ${type}
 			.when(title='${when}') ${when}
-		.body ${body}
+		.body {{html body}}
 
 script#pagination-template(type='text/x-jquery-tmpl')
 	.current page ${page} of ${total}

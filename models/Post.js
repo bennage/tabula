@@ -64,7 +64,7 @@ Post.method({
     }
 
     this.type = type;
-    this.body = applyColors(data.body.trim());
+    this.body = data.body.trim();
     this.rolls = data.rolls;
   }
 });

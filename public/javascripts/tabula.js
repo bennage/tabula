@@ -100,9 +100,26 @@
 
 	function renderStream(stream) {
 		stream = (typeof stream.length === 'undefined') ? [stream] : stream;
+				
+		stream.forEach(function(post) {
+			post.body = applyColors(post.body);
+		});
+
 		$.tmpl('post-template', stream ).prependTo( '#stream' );
 		//todo: we could optimize this call
 		$('.when').prettyDate();
+	}
+
+	function applyColors(text) {
+	  // text = text.replace(/{([^:]+):/i, function(m) {
+	  //     return '<span class="color" style="color:' + RegExp.$1 + ';">';
+	  //   });
+	  // text = text.replace(/}/,'</span>');
+	  text = text.replace(/{([^:]+):(.+)}/i, '<span class="color" style="color:$1">$2</span>');
+	  text = text.replace(/_([^_]+)_/,'<em>$1</em>');	  
+	  text = text.replace(/\*([^\*]+)\*/,'<strong>$1</strong>');
+
+	  return text;
 	}
 
 	function imagePreview(){	
