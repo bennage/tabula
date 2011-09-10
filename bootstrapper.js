@@ -43,11 +43,11 @@ function bootApplication(app) {
     var id = req.params.user;
     var User = mongoose.model('User');
 
-    User.findOne({ facebookId: id}, function(err, result) {
+    User.findOne({ loginId: id}, function(err, result) {
         var user;
         if(!result) {
           user = new User();
-          user.facebookId = id;
+          user.loginId = id;
           user.name = id;
           user.save();
         } else {

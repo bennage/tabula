@@ -21,7 +21,11 @@ html
 
         #account
             - if (!user)
-                a(href='/auth/facebook') Sign in with Facebook
+                span Sign in with 
+                a(href='/auth/facebook') Facebook 
+                span  or 
+                a(href='/auth/google') Google
+
             - else
                 .username= user.name
                     &nbsp;
